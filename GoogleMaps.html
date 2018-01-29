@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+<!-- dette er link til de app symbolene nederst på siden -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
@@ -12,21 +17,31 @@
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
-        height: 100%;
-        margin: 0;
+
+        height: 80%;
+        margin: 8%;
         padding: 0;
       }
     </style>
   </head>
   <body>
+    <h1>Map of places of interests in Bergen</h1>
+    <!-- Her er menyens valg -->
+    <div class="topnav" id="myTopnav">
+  <a href="index.html">Forsiden</a>
+  <a href="side1.html">gis</a>
+  <a href="side2.html">lekdeg</a>
+  <a href="side3.html">maffaking spisesteder</a>
+  <a href="side4.html">noe shiet</a>
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="Meny()">&#9776;</a> </div>
     <div id="map"></div>
+
     <script>
 
       // This example displays a marker at the center of Australia.
       // When the user clicks the marker, an info window opens.
 
-      // This example displays a marker at the center of Australia.
-      // When the user clicks the marker, an info window opens.
+
 
       function initMap() {
         var akvariet = {lat: 60.3996913, lng: 5.303371};
@@ -74,5 +89,18 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIGUZyngqzJtwcQcUDRJfz3FdkSRe2OR4&callback=initMap">
     </script>
+
+    <!-- her er for de app symbolene som linker til stylesheete på toppen -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+      <div class="w3-xlarge w3-padding-32">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+     </div>
+    </footer>
+
   </body>
 </html>
