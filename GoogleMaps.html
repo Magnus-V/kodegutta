@@ -8,6 +8,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
+
     <link rel="stylesheet" href="css/googleMap.css">
     <script type="text/javascript" src="js/scriptindex.js"></script>
     <title>Info windows</title>
@@ -15,6 +16,7 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
+
         height: 80%;
         width: auto;
         margin-left: 10%;
@@ -31,6 +33,7 @@
     </style>
   </head>
   <body>
+
     <h1>Map of places of interests in Bergen</h1>
     <!-- Her er menyens valg -->
     <div class="topnav" id="myTopnav">
@@ -49,15 +52,17 @@
       // This example displays a marker at the center of Australia.
       // When the user clicks the marker, an info window opens.
 
-
-
       function initMap() {
         var akvariet = {lat: 60.3996913, lng: 5.303371};
         var bryggen = {lat: 60.397076,  lng:5.324383};
         var floien = {lat: 60.394504, lng: 5.34283};
+        var hulen = {lat: 60.384759, lng: 5.325364};
+        var torgAll = {lat: 60.393199, lng: 5.324125};
+
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 13,
           center: akvariet
+
         });
 
         var contentString = '<div id="content">'+
@@ -65,15 +70,74 @@
             '</div>'+
             '<h1 id="firstHeading" class="firstHeading">Akvariet</h1>'+
             '<div id="bodyContent">'+
-            '<p><b>Akvariet</b>, er et fett sted å være.</p>'+
-            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-            'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-            '(last visited June 22, 2009).</p>'+
+            '<p><b>Akvariet</b> Sprell og moro for dyr og mennesker</p>'+
+            '<p>Mer info om: <a href="https://www.akvariet.no/"> AKVARIET</a> '+
+            '  (Åpningstider: 10:00 - 16:00).</p>'+
+            '</div>'+
+            '</div>';
+
+        var contentString2 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Bryggen</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Bryggen</b> Norges eldste brygge</p>'+
+            '<p>Mer info om: <a href="https://www.bergen.no/"> BERGEN</a> '+
+            '</p>'+
+            '</div>'+
+            '</div>';
+
+        var contentString3 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Floien</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Floien</b> Fjelltur for hele familien med utsikt over Bergen by</p>'+
+            '<p>Mer info om: <a href="https://www.floyen.no/"> FLOIEN</a> '+
+            '</p>'+
+            '</div>'+
+            '</div>';
+
+        var contentString4 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Hulen</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Hulen</b> Bar tilpasset studenter</p>'+
+            '<p>Mer info om: <a href="https://www.hulen.no/"> HULEN</a> '+
+            '</p>'+
+            '</div>'+
+            '</div>';
+
+        var contentString5 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Torgallmenningen</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Torgallmenningen</b> Shopping-gate i Bergen sentrum</p>'+
+            '<p>Mer info om: <a href="https://www.bt.no/nyheter/i/557y1/Torgallmenningen"> TORGALLMENNINGEN</a> '+
+            '</p>'+
             '</div>'+
             '</div>';
 
         var infowindow = new google.maps.InfoWindow({
           content: contentString
+        });
+
+        var infowindow2 = new google.maps.InfoWindow({
+          content: contentString2
+        });
+
+        var infowindow3 = new google.maps.InfoWindow({
+          content: contentString3
+        });
+
+        var infowindow4 = new google.maps.InfoWindow({
+          content: contentString4
+        });
+
+        var infowindow5 = new google.maps.InfoWindow({
+          content: contentString5
         });
 
         var marker = new google.maps.Marker({
@@ -85,17 +149,40 @@
           position: bryggen,
           map: map
         });
-        var marker4 = new google.maps.Marker({
+        var marker3 = new google.maps.Marker({
           position: floien,
           map: map
         });
+        var marker4 = new google.maps.Marker({
+          position: hulen,
+          map: map
+        });
+        var marker5 = new google.maps.Marker({
+          position: torgAll,
+          map: map
+
+        });
+
         marker.addListener('click', function() {
           infowindow.open(map, marker);
         });
-      }
+        marker2.addListener('click', function() {
+          infowindow2.open(map, marker2);
+        });
+        marker3.addListener('click', function() {
+          infowindow3.open(map, marker3);
+        });
+        marker4.addListener('click', function() {
+          infowindow4.open(map, marker4);
+        });
+        marker5.addListener('click', function() {
+          infowindow5.open(map, marker5);
+        });
+}
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIGUZyngqzJtwcQcUDRJfz3FdkSRe2OR4&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaL9QUhf2uf3HhOajXhAIDx32wiy4eCWY&callback=initMap">
+
     </script>
 
     <!-- her er for de app symbolene som linker til stylesheete på toppen -->
