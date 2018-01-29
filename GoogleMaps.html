@@ -44,12 +44,42 @@
             '<div id="bodyContent">'+
             '<p><b>Akvariet</b> Sprell og moro for dyr og mennesker</p>'+
             '<p>Mer info om: <a href="https://www.akvariet.no/"> AKVARIET</a> '+
-            '(Åpningstider: 10:00 - 16:00).</p>'+
+            '  (Åpningstider: 10:00 - 16:00).</p>'+
+            '</div>'+
+            '</div>';
+
+        var contentString2 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Bryggen</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Bryggen</b> Norges eldste brygge</p>'+
+            '<p>Mer info om: <a href="https://www.bergen.no/"> BERGEN</a> '+
+            '</p>'+
+            '</div>'+
+            '</div>';
+
+        var contentString3 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Floien</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Floien</b> Fjelltur for hele familien med utsikt over Bergen by</p>'+
+            '<p>Mer info om: <a href="https://www.floyen.no/"> FLOIEN</a> '+
+            '</p>'+
             '</div>'+
             '</div>';
 
         var infowindow = new google.maps.InfoWindow({
           content: contentString
+        });
+
+        var infowindow2 = new google.maps.InfoWindow({
+          content: contentString2
+        });
+
+        var infowindow3 = new google.maps.InfoWindow({
+          content: contentString3
         });
 
         var marker = new google.maps.Marker({
@@ -68,10 +98,16 @@
         marker.addListener('click', function() {
           infowindow.open(map, marker);
         });
+        marker2.addListener('click', function() {
+          infowindow2.open(map, marker2);
+        });
+        marker3.addListener('click', function() {
+          infowindow3.open(map, marker3);
+        });
       }
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIGUZyngqzJtwcQcUDRJfz3FdkSRe2OR4&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaL9QUhf2uf3HhOajXhAIDx32wiy4eCWY&callback=initMap">
     </script>
   </body>
 </html>
