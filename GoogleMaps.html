@@ -33,6 +33,7 @@
         var bryggen = {lat: 60.397076,  lng:5.324383};
         var floien = {lat: 60.394504, lng: 5.34283};
         var hulen = {lat: 60.384759, lng: 5.325364};
+        var torgAll = {lat: 60.393199, lng: 5.324125};
 
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 13,
@@ -83,6 +84,17 @@
             '</div>'+
             '</div>';
 
+        var contentString5 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Torgallmenningen</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Torgallmenningen</b> Shopping-gate i Bergen sentrum</p>'+
+            '<p>Mer info om: <a href="https://www.bt.no/nyheter/i/557y1/Torgallmenningen"> TORGALLMENNINGEN</a> '+
+            '</p>'+
+            '</div>'+
+            '</div>';
+
         var infowindow = new google.maps.InfoWindow({
           content: contentString
         });
@@ -97,6 +109,10 @@
 
         var infowindow4 = new google.maps.InfoWindow({
           content: contentString4
+        });
+
+        var infowindow5 = new google.maps.InfoWindow({
+          content: contentString5
         });
 
         var marker = new google.maps.Marker({
@@ -116,6 +132,10 @@
           position: hulen,
           map: map
         });
+        var marker5 = new google.maps.Marker({
+          position: torgAll,
+          map: map
+        });
         marker.addListener('click', function() {
           infowindow.open(map, marker);
         });
@@ -127,6 +147,9 @@
         });
         marker4.addListener('click', function() {
           infowindow4.open(map, marker4);
+        });
+        marker5.addListener('click', function() {
+          infowindow4.open(map, marker5);
         });
 }
     </script>
