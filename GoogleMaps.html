@@ -32,6 +32,8 @@
         var akvariet = {lat: 60.3996913, lng: 5.303371};
         var bryggen = {lat: 60.397076,  lng:5.324383};
         var floien = {lat: 60.394504, lng: 5.34283};
+        var hulen = {lat: 60.384759, lng: 5.325364};
+
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 13,
           center: akvariet
@@ -70,6 +72,17 @@
             '</div>'+
             '</div>';
 
+        var contentString4 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Hulen</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Hulen</b> Bar tilpasset studenter</p>'+
+            '<p>Mer info om: <a href="https://www.hulen.no/"> HULEN</a> '+
+            '</p>'+
+            '</div>'+
+            '</div>';
+
         var infowindow = new google.maps.InfoWindow({
           content: contentString
         });
@@ -80,6 +93,10 @@
 
         var infowindow3 = new google.maps.InfoWindow({
           content: contentString3
+        });
+
+        var infowindow4 = new google.maps.InfoWindow({
+          content: contentString4
         });
 
         var marker = new google.maps.Marker({
@@ -95,6 +112,10 @@
           position: floien,
           map: map
         });
+        var marker4 = new google.maps.Marker({
+          position: hulen,
+          map: map
+        });
         marker.addListener('click', function() {
           infowindow.open(map, marker);
         });
@@ -104,7 +125,10 @@
         marker3.addListener('click', function() {
           infowindow3.open(map, marker3);
         });
-      }
+        marker4.addListener('click', function() {
+          infowindow4.open(map, marker4);
+        });
+
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaL9QUhf2uf3HhOajXhAIDx32wiy4eCWY&callback=initMap">
