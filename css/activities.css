@@ -1,6 +1,19 @@
 /* Redigerer utseende til arrangment-boksene. */
-.activities {
-  border:1em;
+#activity1 {
+  border-width: 0.5em;
+  border-color: black;
+  background-color: #e6fff2;
+  padding-top: 3em;
+  padding-right:5em;
+  padding-left: 5em;
+  padding-bottom: 3em;
+  margin-bottom: 1em;
+  margin-left: 12em;
+  margin-right: 12em;
+}
+
+#activity2 {
+  border-width: 0.5em;
   border-color: black;
   background-color: #e6fff2;
   padding-top: 3em;
@@ -51,7 +64,15 @@
 }
 
 /* Sentrerer teksten. */
-h1, p, h2 {text-align: center;}
+h1, p, h2, h4 {text-align: center;}
+
+/* Redigerer underhovedskriften h1 */
+#overskrift {
+  margin:0.8em;
+  font-size: 4em;
+  font-family: Verdana;
+
+}
 
 /* Bilde 1. Bergen? */
 #bilde1 {width: 100%;height: auto;}
