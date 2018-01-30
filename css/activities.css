@@ -1,3 +1,4 @@
+/* Redigerer utseende til arrangment-boksene. */
 .activities {
   border:0.5em;
   background-color: lightgreen;
@@ -10,33 +11,38 @@
   margin-right: 12em;
 }
 
+/* Generelt om p*/
 .p {
       font-family: Verdana, sans-serif;
 }
 
+/* Navn på aktivitet. */
 #activityName {
     font-size: 2em;
 }
 
+/* Navn på kategori*/
 #category {
-
   font-style: italic;
   font-size: 1em;
 }
 
+/* Dato */
 #date {
   font-size: 0.7em;
 }
 
+/* Lokalisjon */
 #location {
   font-size: 1em;
   font-style: oblique;
 
 }
 
-h1, p {text-align: center;}
+/* Sentrerer teksten. */
+h1, p, h2 {text-align: center;}
 
-
+/* Bilde 1. Bergen? */
 #bilde1 {width: 100%;height: auto;}
 
 /* Her er css for hamburger menyen */
@@ -45,6 +51,7 @@ h1, p {text-align: center;}
   background-color: #333;
 }
 
+/* For linkene i hamburger-menyen */
 .topnav a {
   float: left;
   display: block;
