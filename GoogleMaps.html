@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<!-- dette er link til de app symbolene nederst på siden -->
+<!-- dette er lenkene til de app-symbolene nederst på siden -->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
@@ -21,7 +21,7 @@
         margin-right: 10%;
 
       }
-      /* Optional: Makes the sample page fill the window. */
+      /* Gjør at vinduet til nettsiden blir fyllt */
       html, body {
 
         height: 100%;
@@ -46,23 +46,21 @@
 
     <script>
 
-      // This example displays a marker at the center of Australia.
-      // When the user clicks the marker, an info window opens.
-
-
-
       function initMap() {
+        //geo-posisjoner til de ulike markørene våre
               var akvariet = {lat: 60.3996913, lng: 5.303371};
               var bryggen = {lat: 60.397076,  lng:5.324383};
               var floien = {lat: 60.394504, lng: 5.34283};
               var hulen = {lat: 60.384759, lng: 5.325364};
               var torgAll = {lat: 60.393199, lng: 5.324125};
 
+              //Kode for å importere et kart fra google
               var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 13,
                 center: akvariet
               });
 
+              //Info om Akvariet som vises når markøren til Akvariet blir aktivert
               var contentString = '<div id="content">'+
                   '<div id="siteNotice">'+
                   '</div>'+
@@ -74,28 +72,31 @@
                   '</div>'+
                   '</div>';
 
+              //Info om Bryggen som vises når markøren til Bryggen blir aktivert
               var contentString2 = '<div id="content">'+
                   '<div id="siteNotice">'+
                   '</div>'+
                   '<h1 id="firstHeading" class="firstHeading">Bryggen</h1>'+
                   '<div id="bodyContent">'+
-                  '<p><b>Bryggen</b> Norges eldste brygge</p>'+
+                  '<p><b>Bryggen</b> Historisk kulturbegivenhet nær Bergen by. Populært turistmål</p>'+
                   '<p>Mer info om: <a href="https://www.bergen.no/"> BERGEN</a> '+
                   '</p>'+
                   '</div>'+
                   '</div>';
 
+              //Info om Fløien som vises når markøren til Fløien blir aktivert
               var contentString3 = '<div id="content">'+
                   '<div id="siteNotice">'+
                   '</div>'+
-                  '<h1 id="firstHeading" class="firstHeading">Floien</h1>'+
+                  '<h1 id="firstHeading" class="firstHeading">Fløien</h1>'+
                   '<div id="bodyContent">'+
-                  '<p><b>Floien</b> Fjelltur for hele familien med utsikt over Bergen by</p>'+
-                  '<p>Mer info om: <a href="https://www.floyen.no/"> FLOIEN</a> '+
+                  '<p><b>Fløien</b> Fjelltur for hele familien med utsikt over Bergen by</p>'+
+                  '<p>Mer info om: <a href="https://www.floyen.no/"> FLØIEN</a> '+
                   '</p>'+
                   '</div>'+
                   '</div>';
 
+              //Info om Hulen som vises når markøren til Hulen blir aktivert
               var contentString4 = '<div id="content">'+
                   '<div id="siteNotice">'+
                   '</div>'+
@@ -107,6 +108,7 @@
                   '</div>'+
                   '</div>';
 
+              //Info om Torgallmenningen som vises når markøren til Torgallmenningen blir aktivert
               var contentString5 = '<div id="content">'+
                   '<div id="siteNotice">'+
                   '</div>'+
@@ -118,6 +120,7 @@
                   '</div>'+
                   '</div>';
 
+              //Knytter contentString-ene over til hvert sitt pop-up Infovindu
               var infowindow = new google.maps.InfoWindow({
                 content: contentString
               });
@@ -138,6 +141,7 @@
                 content: contentString5
               });
 
+              //Selve markørene på kartet, og hvor de skal være plassert
               var marker = new google.maps.Marker({
                 position: akvariet,
                 map: map,
@@ -146,19 +150,26 @@
               var marker2 = new google.maps.Marker({
                 position: bryggen,
                 map: map
+                title: 'Bryggen (Bergen)'
               });
               var marker3 = new google.maps.Marker({
                 position: floien,
                 map: map
+                title: 'Fløien (Bergen)'
               });
               var marker4 = new google.maps.Marker({
                 position: hulen,
                 map: map
+                title: 'Hulen (Bergen)'
               });
               var marker5 = new google.maps.Marker({
                 position: torgAll,
                 map: map
+                title: 'Torgallmenningen (Bergen)'
               });
+
+              /* Selve funksjonen som gjør at man kan klikke på
+              markørene for å åpne infovinduene */
               marker.addListener('click', function() {
                 infowindow.open(map, marker);
               });
@@ -180,7 +191,8 @@
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaL9QUhf2uf3HhOajXhAIDx32wiy4eCWY&callback=initMap">
           </script>
 
-    <!-- her er for de app symbolene som linker til stylesheete på toppen -->
+    <!-- Ulike lenker til sosiale medier vist ved symboler
+      som linker til lenkene øverst i koden-->
     <footer class="w3-container w3-padding-64 w3-center w3-opacity">
       <div class="w3-xlarge w3-padding-32">
         <i class="fa fa-facebook-official w3-hover-opacity"></i>
