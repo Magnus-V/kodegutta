@@ -1,7 +1,9 @@
 /* Redigerer utseende til arrangment-boksene. */
+
 #activity1 {
   border-width: 0.5em;
   border-color: black;
+  border-style:double;
   background-color: #e6fff2;
   padding-top: 3em;
   padding-right:5em;
@@ -15,6 +17,7 @@
 #activity2 {
   border-width: 0.5em;
   border-color: black;
+  border-style:double;
   background-color: #e6fff2;
   padding-top: 3em;
   padding-right:5em;
