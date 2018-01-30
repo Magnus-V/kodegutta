@@ -14,38 +14,79 @@
     <title>Semesteroppgave</title>
   </head>
 
-  <header> <img id="bilde1" src="bergen2.jpg" height="400" width="1300">
+  <header> <img id="bilde1" src="bergen.jpg" height="400" width="1300">
 
   <body>
     <!-- Her er menyens valg -->
     <div class="topnav" id="myTopnav">
-  <a href="index.html">Forsiden</a>
-  <a href="activities.html">Aktiviteter</a>
-  <a href="side2.html">Ukjent</a>
-  <a href="side3.html">Steder å spise</a>
-  <a href="side4.html">Uteliv</a>
-  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="Meny()">&#9776;</a> </div>
+      <a href="#home" class="active">Home</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
 
     <h1>Velkommen til Bergen</h1>
       <p> forskjellige språk lmao </p>
 
+<!-- Første post på main siden med bilde og tekst -->
+      <div class="row">
+        <div class="leftcolumn">
+          <div class="card">
+            <h2>Topp 10 Ting å gjøre i Bergen</h2>
+            <h6> Aftenposten 10.august.2017 </h6>
+            <img id="bilde1" src="klovner.jpg">
+            <p>Få detaljene til fots<br>
+              Selv om Bergen er Norges nest største by, har den en ganske liten og kompakt sentrumskjerne.
+              Derfor er en sightseeing til fots kanskje den beste måten å oppleve byen på.
+              Trange brosteinsbelagte gater med små gamle trehus i ulike farger er noe av det Bergen er kjent for.
+              Bebyggelsen strekker seg fra sjøkanten og oppover i fjellsiden.</p>
+          </div>
+          <div class="card">
+            <h2>Kultur og Fjellsiden</h2>
+            <img id="bilde1" src="bryggen.jpg">
+            <p>Ikke glem å opplev kultur byen Bergen <br>
+            <p>Bergen er kanskje en storby i norsk skala, men stemningen minner om den du finner i en sjarmerende småby.
+              De patriotiske bergenserne er stolte av sin allsidige by, som har lange historiske og kulturelle tradisjoner.
+              De viser deg gjerne sine favorittattraksjoner, restauranter og kaffesjapper.</p>
+          </div>
+        </div>
+<!-- Dette er for værmeldingen på høgre side -->
+        <div class="rightcolumn">
+          <div class="card">
+            <h2>Været idag!</h2>
+            <script src="https://www.yr.no/sted/Norge/Hordaland/Bergen/Bergen/ekstern_boks_liten.js"></script>
+            <noscript><a href="https://www.yr.no/sted/Norge/Hordaland/Bergen/Bergen/">yr.no: Værvarsel for Bergen</a></noscript>
+          </div>
 
-      <!-- her er for de app symbolene som linker til stylesheete på toppen -->
-      <footer class="w3-container w3-padding-64 w3-center w3-opacity">
-        <div class="w3-xlarge w3-padding-32">
-          <i class="fa fa-facebook-official w3-hover-opacity"></i>
-          <i class="fa fa-instagram w3-hover-opacity"></i>
-          <i class="fa fa-snapchat w3-hover-opacity"></i>
-          <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-          <i class="fa fa-twitter w3-hover-opacity"></i>
-          <i class="fa fa-linkedin w3-hover-opacity"></i>
-       </div>
-      </footer>
+          <div class="card">
+            <h3>Popular Post</h3>
+            <div class="fakeimg"><p>Image</p></div>
+            <div class="fakeimg"><p>Image</p></div>
+            <div class="fakeimg"><p>Image</p></div>
+          </div>
 
+<!-- Sosiale medier iconer og bergen bilde på høgre siden, har egen css linket i toppen -->
+          <div class="card">
+            <h3 id="h3"> Følg @BergenBy på sosiale medier</h3>
+            <img id="bilde1" src="skjold.jpg" >
+            <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+              <div class="w3-xlarge w3-padding-32">
+                <i class="fa fa-facebook-official w3-hover-opacity"></i>
+                <i class="fa fa-instagram w3-hover-opacity"></i>
+                <i class="fa fa-snapchat w3-hover-opacity"></i>
+                <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+                <i class="fa fa-twitter w3-hover-opacity"></i>
+                <i class="fa fa-linkedin w3-hover-opacity"></i>
+             </div>
+            </footer>
+          </div>
+        </div>
+      </div>
 
-
-
-
+      <div class="footer">
+        <h5> Turist gang©™ last update: fredag 26.januar. </h5>
+      </div>
 
   </body>
 </html>
