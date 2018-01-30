@@ -113,18 +113,22 @@ function initMap() {
         var marker2 = new google.maps.Marker({
           position: bryggen,
           map: map
+          title: 'Bryggen (Bergen)'
         });
         var marker3 = new google.maps.Marker({
           position: floien,
           map: map
+          title: 'Fløien (Bergen)'
         });
         var marker4 = new google.maps.Marker({
           position: hulen,
           map: map
+          title: 'Hulen (Bergen)'
         });
         var marker5 = new google.maps.Marker({
           position: torgAll,
           map: map
+          title: 'Torgallmenningen (Bergen)'
         });
         marker.addListener('click', function() {
           infowindow.open(map, marker);
