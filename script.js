@@ -1,4 +1,0 @@
-
-funtion startProgram(){
-  return null;
-};
