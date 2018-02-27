@@ -162,4 +162,9 @@ function initMap() {
           infowindow3.close();
           infowindow4.close();
         });
+
+    function initWC(){
+      
+
+    }
 }
