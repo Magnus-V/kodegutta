@@ -1,6 +1,6 @@
 /*CSS dokuemtn for GoogleMaps.html */
 
-h1 {text-align: center;;}
+h1 {text-align: center;}
 
 .topnav {
   overflow: hidden;
@@ -9,10 +9,10 @@ h1 {text-align: center;;}
 }
 
 .topnav a {
-  float: left;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  display: inline-flex;
   color: #f2f2f2;
-  text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
@@ -30,10 +30,11 @@ h1 {text-align: center;;}
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
-    float: right;
-    display: block;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
-}
+
 
 @media screen and (max-width: 600px) {
   .topnav.responsive {position: relative;}
@@ -44,6 +45,7 @@ h1 {text-align: center;;}
   }
   .topnav.responsive a {
     float: none;
-    display: block;
+    display: flex;
+    justify-content: center;
     text-align: left;
   }
