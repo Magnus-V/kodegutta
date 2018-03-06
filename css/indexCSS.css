@@ -61,10 +61,12 @@ body {
 body {margin:0;}
 
 .topnav {
+  display: flex;
   overflow: hidden;
   background-color: #333;
 }
 
+/* For linkene i hamburger-menyen */
 .topnav a {
   display: flex;
   flex-direction: column;
@@ -81,15 +83,11 @@ body {margin:0;}
   color: black;
 }
 
-.active {
-  background-color: #DAA520;
-  color: white;
+.topnav .icon {
+  display: none;
 }
 
-.topnav .icon {
-  display: flex;
-  flex-direction: none;
-}
+
 
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
