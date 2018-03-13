@@ -91,7 +91,32 @@ h1, p, h2, h4 {
 #bilde1 {
   display: flex;
   width: 100%;
-  height: auto;}
+  height: auto;
+}
+
+#merBergen {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-width: 0.5em;
+  border-color: black;
+  border-style:double;
+  background-color: #e6fff2;
+  padding-top: 3em;
+  padding-right:5em;
+  padding-left: 5em;
+  padding-bottom: 3em;
+  margin-bottom: 1em;
+  margin-left: 12em;
+  margin-right: 12em;
+}
+
+body {
+    font-family: Arial;
+    padding:20px;
+    background: #f1f1f1;
+}
 
 /* Her er css for hamburger menyen */
 .topnav {

@@ -1,5 +1,11 @@
 h1, p, h3 {text-align: center;}
 
+#bilde0 {
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+
 #bilde1 {
     width: 75%;
 }
@@ -15,7 +21,7 @@ h1, p, h3 {text-align: center;}
 
 body {
     font-family: Arial;
-    padding: 20px;
+    padding:20px;
     background: #f1f1f1;
 }
 /* Create two unequal columns that floats next to each other */
