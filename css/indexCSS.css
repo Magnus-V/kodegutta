@@ -30,6 +30,8 @@ body {
     display: flex;
     flex-direction: row;
     width: 90%;
+    float: left;
+    width: 75%;
 }
 
 /* Right column */
@@ -37,6 +39,7 @@ body {
     display: flex;
     flex-flow: column;
     justify-content: space-between;
+    float: left;
     width: 25%;
     background-color: #f1f1f1;
     padding-left: 20px;
@@ -59,7 +62,7 @@ body {
 /* Clear floats after the columns */
 .row:after {
     content: "";
-    display: flex;
+    display: table;
     clear: both;
 }
 
@@ -89,9 +92,8 @@ body {margin:0;}
 
 /* For linkene i hamburger-menyen */
 .topnav a {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  float: left;
+  display: block;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
@@ -113,8 +115,8 @@ body {margin:0;}
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
-    display: flex;
-    flex-direction: column-reverse;
+    float: right;
+    display: block;
   }
 }
 
@@ -126,8 +128,8 @@ body {margin:0;}
     top: 0;
   }
   .topnav.responsive a {
-    flex-direction: none;;
-    display: flex;
+    float: none;
+    display: block;
     text-align: left;
   }
 
