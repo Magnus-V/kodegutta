@@ -49,3 +49,10 @@ h1 {text-align: center;}
     justify-content: center;
     text-align: left;
   }
+
+table {
+  display: flex;
+  table-layout: auto;
+  border-spacing: 0.2em;
+  border: 1px, solid, black;
+}

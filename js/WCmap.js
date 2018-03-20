@@ -261,21 +261,118 @@ var toilets = {
 	]
 }
 
+var keys = [];
 
-for(var y = 0; y < toilets.toilet.length; y++){
-	var table = document.getElementById("liste");
-	var tr = document.createElement("tr");
-	var td = document.createElement("td");
-	for(var key in toilets[i]){
-   var textContent = document.createTextNode(key)
-	 td.appendChild(textContent);
-	 tr.appendChild(td);
- }
+document.write("<table border==\"1\"><tr>");
+for (key in toilets.toilet[0]) {
+	document.write('<td>' + key + '</td>');
+}
+document.write("</tr>");
+for (var i = 0; i < toilets.toilet.length; i++) {
+	document.write('<tr>');
+	for (key in toilets.toilet[i]) {
+  	document.write('<td>' + toilets.toilet[i][key] + '</td>');
+  }
+	document.write('</tr>');
+}
+document.write("</table>");
+
+/*
+
+var table = document.getElementById("table");
+for(var x = 0; x <toilets.toilet.length; x++){
+	for (key in toilets.toilet){
+		document.createElement("th");
+		th.textContent(toilets.toilet.key);
+		table.appendChild.th;
+
+	var trow1 = document.createElement("td");
+	var trow2 = document.createElement("td");
+	var trow3 = document.createElement("td");
+	var trow4 = document.createElement("td");
+	var trow5 = document.createElement("td");
+	var trow6 = document.createElement("td");
+	var trow7 = document.createElement("td");
+	var trow8 = document.createElement("td");
+	var trow9 = document.createElement("td");
+	var trow10 = document.createElement("td");
+	var trow11 = document.createElement("td");
+	var trow12 = document.createElement("td");
+	var trow13 = document.createElement("td");
+	var trow14 = document.createElement("td");
+	var trow15 = document.createElement("td");
+	var trow16 = document.createElement("td");
+  var rowItem = document.createElement("tr");
+	var rowItem2 = document.createElement("tr");
+	var rowItem3 = document.createElement("tr");
+	var rowItem4 = document.createElement("tr");
+	var rowItem5 = document.createElement("tr");
+	var rowItem6 = document.createElement("tr");
+	var rowItem7 = document.createElement("tr");
+	var rowItem8 = document.createElement("tr");
+	var rowItem9 = document.createElement("tr");
+	var rowItem10 = document.createElement("tr");
+	var rowItem11 = document.createElement("tr");
+	var rowItem12 = document.createElement("tr");
+	var rowItem13 = document.createElement("tr");
+	var rowItem14 = document.createElement("tr");
+	var rowItem15 = document.createElement("tr");
+	var rowItem16 = document.createElement("tr");
+
+	rowItem.textContent = toilets.toilet[x].id;
+  rowItem2.textContent = toilets.toilet[x].plassering;
+	rowItem3.textContent = toilets.toilet[x].pris;
+	rowItem4.textContent = toilets.toilet[x].tid_hverdag;
+	rowItem5.textContent = toilets.toilet[x].tid_lordag;
+	rowItem6.textContent = toilets.toilet[x].tid_sondag;
+	rowItem7.textContent = toilets.toilet[x].adresse;
+	rowItem8.textContent = toilets.toilet[x].stellerom;
+	rowItem9.textContent = toilets.toilet[x].herre;
+	rowItem10.textContent = toilets.toilet[x].dame;
+	rowItem11.textContent = toilets.toilet[x].pissoir_only;
+	rowItem12.textContent = toilets.toilet[x].rullestol;
+	rowItem13.textContent = toilets.toilet[x].place;
+	rowItem14.textContent = toilets.toilet[x].longitude;
+	rowItem15.textContent = toilets.toilet[x].latitude;
+
   //toilets.toilet[x].plassering;
-  //toilets.toilet[x].plassering;
-  table.appendChild(tr);
+	trow1.appendChild(rowItem);
+	trow2.appendChild(rowItem2);
+	trow3.appendChild(rowItem3);
+	trow4.appendChild(rowItem4);
+	trow5.appendChild(rowItem5);
+	trow6.appendChild(rowItem6);
+	trow7.appendChild(rowItem7);
+	trow8.appendChild(rowItem8);
+	trow9.appendChild(rowItem9);
+	trow10.appendChild(rowItem10);
+	trow11.appendChild(rowItem11);
+	trow12.appendChild(rowItem12);
+	trow13.appendChild(rowItem13);
+	trow14.appendChild(rowItem14);
+	trow15.appendChild(rowItem15);
+	trow16.appendChild(rowItem16);
+  table.appendChild(trow1);
+	table.appendChild(trow2);
+	table.appendChild(trow3);
+	table.appendChild(trow4);
+	table.appendChild(trow5);
+	table.appendChild(trow6);
+	table.appendChild(trow7);
+	table.appendChild(trow8);
+	table.appendChild(trow9);
+	table.appendChild(trow10);
+	table.appendChild(trow11);
+	table.appendChild(trow12);
+	table.appendChild(trow13);
+	table.appendChild(trow14);
+	table.appendChild(trow15);
+	table.appendChild(trow16);
+
+table.style.color = "#AAA";
 }
 }
+
 
 
 /*
@@ -289,45 +386,5 @@ obj.place, obj.dame, obj.longitude);
 
 console.log(obj)
 }
-}
-*/
-
-/*
-
-for(var x = 0; x < toilets.length; x++){
-  var list = document.createElement("li");
-
-    var innhold = (document.createTextNode(toilets[x]));
-
-    list.appendChild(innhold[]);
-  }
-  document.getElementById('liste').appendChild(innhold(toilets[0][0]));
-  return list;
-
-
-
-}
-
-function showHeroes(){
-
-  for (var i = 0; i < toilets.length; i++) {
-    var myArticle = document.createElement('article');
-    var myH2 = document.createElement('h2');
-    var myList = document.createElement('ul');
-
-    myH2.textContent = toilets[i].plassering;
-
-    for (var j = 0; j < toilets.length; j++) {
-      var listItem = document.createElement('li');
-      listItem.textContent = toilets[j];
-      myList.appendChild(listItem);
-    }
-
-    myArticle.appendChild(myH2);
-    myArticle.appendChild(myList);
-    section.appendChild(myArticle);
-  }
-
-  return list;
 }
 */
