@@ -19,7 +19,7 @@ function Meny() {
 /* Her er js for kartet. */
 
 function initMap() {
-        var akvariet = {lat: 60.3996913, lng: 5.303371};
+        var akvariet = {lat: 60.3996913, lng:5.303371};
         var bryggen = {lat: 60.397076,  lng:5.324383};
         var floien = {lat: 60.394504, lng: 5.34283};
         var hulen = {lat: 60.384759, lng: 5.325364};
@@ -164,7 +164,7 @@ function initMap() {
         });
 
     function initWC(){
-      
+
 
     }
 }

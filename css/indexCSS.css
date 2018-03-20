@@ -1,38 +1,62 @@
 h1, p, h3 {text-align: center;}
 
-#bilde1 {width: 100%;height: auto;}
+#bilde0 {
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+
+#bilde1 {
+    width: 75%;
+}
+
+#bilde2 {
+  width: 75%;
+}
+
+#bilde3 {
+    width: 5%;
+
+}
 
 body {
     font-family: Arial;
-    padding: 20px;
+    padding:20px;
     background: #f1f1f1;
 }
 /* Create two unequal columns that floats next to each other */
 /* Left column */
 .leftcolumn {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
     float: left;
     width: 75%;
 }
 
 /* Right column */
 .rightcolumn {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
     float: left;
     width: 25%;
     background-color: #f1f1f1;
     padding-left: 20px;
 }
 
-/* Fake image */
-.fakeimg {
-    width: 100%;
-    padding: 5px;
+.cardfoot {
+  text-align: center;
+  margin: auto;
 }
 
 /* Add a card effect for articles */
 .card {
+     justify-content: center;
      background-color: white;
-     padding: 20px;
+     padding: 0px;
      margin-top: 20px;
+     max-width: 100%;
 }
 
 /* Clear floats after the columns */
@@ -61,10 +85,12 @@ body {
 body {margin:0;}
 
 .topnav {
+  display: flex;
   overflow: hidden;
   background-color: #333;
 }
 
+/* For linkene i hamburger-menyen */
 .topnav a {
   float: left;
   display: block;
@@ -80,14 +106,11 @@ body {margin:0;}
   color: black;
 }
 
-.active {
-  background-color: #DAA520;
-  color: white;
-}
-
 .topnav .icon {
   display: none;
 }
+
+
 
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
