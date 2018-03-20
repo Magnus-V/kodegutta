@@ -262,15 +262,18 @@ var toilets = {
 }
 
 
-var x = toilets.toilet[0].plassering;
-document.getElementById("demo").innerHTML = x;
-
-var list = document.getElementById("liste");
-for(var x = 0; x <toilets.toilet.length; x++){
-  var listItem = document.createElement("ul");
-  listItem.textContent = toilets.toilet[x].plassering;
+for(var y = 0; y < toilets.toilet.length; y++){
+	var table = document.getElementById("liste");
+	var tr = document.createElement("tr");
+	var td = document.createElement("td");
+	for(var key in toilets[i]){
+   var textContent = document.createTextNode(key)
+	 td.appendChild(textContent);
+	 tr.appendChild(td);
+ }
   //toilets.toilet[x].plassering;
-  list.appendChild(listItem);
+  //toilets.toilet[x].plassering;
+  table.appendChild(tr);
 }
 }
 
