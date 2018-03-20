@@ -10,7 +10,8 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/googleMap.css">
-    <script type="text/javascript" src="js/scriptGoogleMaps.js"></script>
+  <!--  <script type="text/javascript" src="js/scriptGoogleMaps.js"></script> -->
+    <script type="text/javascript" src="js/WCmap.js"></script>
     <title>Kart</title>
 
     <style>
@@ -44,10 +45,19 @@
 
   <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="Meny()">&#9776;</a> </div>
 
+  <!--  <div onload="initMap();" id="map"></div>
+    <button onclick="initWC();" id="WCmap"> Trykk her for kart over tilgjengelige toalett</button>-
+  -->
+    <button onclick="initToilet();" id="WCmap">Trykk for liste over toalettene</button>
+    <div id="liste">
+
+    </div>
+
+      <p id ="demo"></p>
+
 
     <div onload="initMap();" id="map"></div>
     <button onclick="initWC();" id="WCmap"> Trykk her for kart over tilgjengelige toalett</button>
-
 
           <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaL9QUhf2uf3HhOajXhAIDx32wiy4eCWY&callback=initMap">
