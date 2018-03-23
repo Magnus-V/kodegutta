@@ -261,21 +261,15 @@ var toilets = {
 	]
 }
 
-var keys = [];
-
-document.write("<table border==\"1\"><tr>");
-for (key in toilets.toilet[0]) {
-	document.write('<td>' + key + '</td>');
+for (var i = 0; i < toilets.toilet.length; i++){
+	document.write("<tr>"+ toilets.toilet[i].plassering + "</tr>");
+	document.write("<br>");
+		for (key in toilets.toilet[i]) {
+  		document.write('<td>' + toilets.toilet[i][key] + "<br>" + '</td>');
+			document.write("</table>");
 }
-document.write("</tr>");
-for (var i = 0; i < toilets.toilet.length; i++) {
-	document.write('<tr>');
-	for (key in toilets.toilet[i]) {
-  	document.write('<td>' + toilets.toilet[i][key] + '</td>');
-  }
-	document.write('</tr>');
 }
-document.write("</table>");
+}
 
 /*
 
