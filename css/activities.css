@@ -1,31 +1,30 @@
 /* Redigerer utseende til arrangment-boksene. */
 
 #activity1 {
-  border-width: 0.5em;
-  border-color: black;
-  border-style:double;
-  background-color: #e6fff2;
-  padding-top: 3em;
-  padding-right:5em;
-  padding-left: 5em;
-  padding-bottom: 3em;
-  margin-bottom: 1em;
-  margin-left: 12em;
-  margin-right: 12em;
+  justify-content: center;
+  background: linear-gradient(grey, yellow);
+  padding: 0px;
+  margin-top: 20px;
+  max-width: 100%;
+  border-radius: 20px;
 }
 
 #activity2 {
-  border-width: 0.5em;
-  border-color: black;
-  border-style:double;
-  background-color: #e6fff2;
-  padding-top: 3em;
-  padding-right:5em;
-  padding-left: 5em;
-  padding-bottom: 3em;
-  margin-bottom: 10em;
-  margin-left: 12em;
-  margin-right: 12em;
+  justify-content: center;
+  background: linear-gradient(grey, yellow);
+  padding: 0px;
+  margin-top: 20px;
+  max-width: 100%;
+  border-radius: 20px;
+}
+
+#merBergen {
+  justify-content: center;
+  background: linear-gradient(grey, yellow);
+  padding: 0px;
+  margin-top: 20px;
+  max-width: 100%;
+  border-radius: 20px;
 }
 
 /* Generelt om p*/
@@ -79,28 +78,10 @@ h1, p, h2, h4 {text-align: center;}
 
 /* Bilde 1. Bergen? */
 
-#bilde1 {
+#bilde0 {
   display: flex;
   width: 100%;
   height: auto;
-}
-
-#merBergen {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  border-width: 0.5em;
-  border-color: black;
-  border-style:double;
-  background-color: #e6fff2;
-  padding-top: 1em;
-  padding-right:5em;
-  padding-left: 5em;
-  padding-bottom: 1em;
-  margin-bottom: 1em;
-  margin-left: 12em;
-  margin-right: 12em;
 }
 
 body {
@@ -109,7 +90,7 @@ body {
     background: #f1f1f1;
 }
 
-#bilde1 {width: 100%;height: auto;}
+#bilde0 {width: 100%;height: auto;}
 
 
 /* Her er css for hamburger menyen */
