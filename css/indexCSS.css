@@ -3,20 +3,24 @@ h1, p, h3 {text-align: center;}
 #bilde0 {
   display: flex;
   width: 100%;
-  height: auto;
 }
 
 #bilde1 {
-    width: 75%;
+    display: flex;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 #bilde2 {
-  width: 75%;
+  width: 100%;
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 #bilde3 {
     width: 5%;
-
 }
 
 body {
@@ -28,21 +32,29 @@ body {
 /* Left column */
 .leftcolumn {
     display: flex;
-    flex-direction: row;
-    width: 90%;
+    flex-flow: row;
+    width: 450px;
     float: left;
-    width: 75%;
+
+}
+
+.midcolumn {
+  display: flex;
+  flex-flow: row;
+  width: 450px;
+  float: left;
+  padding-left: 20px;
 }
 
 /* Right column */
 .rightcolumn {
     display: flex;
-    flex-flow: column;
+    flex-flow: row;
     justify-content: space-between;
-    float: left;
+    float: right;
     width: 25%;
     background-color: #f1f1f1;
-    padding-left: 20px;
+    padding-left: 100px;
 }
 
 .cardfoot {
