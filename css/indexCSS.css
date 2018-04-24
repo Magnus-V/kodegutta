@@ -3,6 +3,7 @@ h1, p, h3 {text-align: center;}
 #bilde0 {
   display: flex;
   width: 100%;
+  height: auto;
 }
 
 #bilde1 {
@@ -23,6 +24,10 @@ h1, p, h3 {text-align: center;}
     width: 5%;
 }
 
+a:active {
+    background-color: hotpink;
+}
+
 body {
     font-family: Arial;
     padding:20px;
@@ -35,7 +40,6 @@ body {
     flex-flow: row;
     width: 450px;
     float: left;
-
 }
 
 .midcolumn {
@@ -65,10 +69,11 @@ body {
 /* Add a card effect for articles */
 .card {
      justify-content: center;
-     background-color: white;
+     background: linear-gradient(grey, yellow);
      padding: 0px;
      margin-top: 20px;
      max-width: 100%;
+     border-radius: 20px;
 }
 
 /* Clear floats after the columns */
@@ -84,6 +89,8 @@ body {
     text-align: center;
     background: #ddd;
     margin-top: 5px;
+    border-radius: 20px;
+    border-top: 20px;
 }
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
