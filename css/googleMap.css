@@ -1,11 +1,27 @@
 /*CSS dokuemtn for GoogleMaps.html */
 
-h1 {text-align: center;}
+
+#bilde0 {
+  display: flex;
+  width: 75%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+    font-family: Arial;
+    padding:20px;
+    background: linear-gradient(#D3D3D3, #5c8fc7);
+}
 
 .topnav {
+  display: flex;
   overflow: hidden;
   background-color: #333;
-  margin-bottom: 2em;
+  width: 75%;
+  margin-left:auto;
+  margin-right: auto;
 }
 
 .topnav a {
