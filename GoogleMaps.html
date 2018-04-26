@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/googleMap.css">
   <!--  <script type="text/javascript" src="js/scriptGoogleMaps.js"></script> -->
-    <script type="text/javascript" src="js/WCmap.js"></script>
+    <script type="text/javascript" src="js/search.js"></script>
     <title>Kart</title>
 
     <style>
@@ -51,8 +51,9 @@
     <div id="sjekk ut">
       <button onclick="retrieveJSON();"> Console.log </button>
     </div>
+    <button onclick="createNumberedList();"> Print out numbered list</button>
 
-    <div id="liste" body onload="retrieveJSON();">
+    <div id="liste">
     </div>
           <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaL9QUhf2uf3HhOajXhAIDx32wiy4eCWY&callback=initMap">

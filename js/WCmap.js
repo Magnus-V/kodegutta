@@ -1,7 +1,7 @@
 
 var url = "https://hotell.difi.no/api/json/bergen/dokart?";
 
-function retrieveJSON(){
+function retrieveJSON1(){
 var req = new XMLHttpRequest();
 req.responseType = 'json';
 req.open('GET', url, true);

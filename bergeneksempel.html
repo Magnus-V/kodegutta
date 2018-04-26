@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <!--Hovedsaklig laget av Astrid med inspill av Eirik, se kommentar -->
+  <head>
+      <title>Bergen city</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPAj-JM03Lc5j6ZGZeGo4KaKUi0I7byeY&callback=initMap"></script>
+      <script type= "text/javascript" src=js/search.js></script>
+
+  </head>
+  <body>
+      <form>
+          <input type="text" name="simpleSearch" id= "simpleSearch" placeholder="Search for toilets here..."/>
+          <input type="button" id="sButton" value="search"/>
+        </form>
+
+        <input onclick="showForm()" type="button" id="showForm" value="Advanced Search"/>
+        <input onclick= "hideForm()" type="button" id="hideForm" value="X"/>
+
+        <form id="advSearch"  onsubmit="validateThis()">
+            <input type="checkbox" name="male"  id="male"/>
+            <label for="male">Male</label>
+            <input type="checkbox" name="female"  id="female"/>
+            <label for="female">Female</label>
+            <input type="checkbox" name="wheelchair" id="wheelchair"/>
+            <label for="wheelchair">Wheelchair</label>
+            <input type="checkbox" name="changingRoom"  id="changingRoom"/>
+            <label for="changingRoom"> Changingroom </label>
+            <input type="checkbox" name="openNow"  id="openNow"/>
+            <label for="openNow">Open now:</label>
+            <br>
+            <label for="time">Time/Klokkeslett:</label>
+            <input type="text" name="time"  id="time"  placeholder="time" />
+            <br>
+            <label for="maxPrice">Max pris: </label>
+            <input name="maxPrice"  id="maxPrice"  placeholder="maxPrice"/>
+            <br>
+            <input type="checkbox" name="free"  id="free"/>
+            <label for="free">Free</label>
+            <br>
+            <input  type="button" id="avSearch" value="avSearch"/>
+        </form>
+
+        <ol id="toiletList"></ol>
+      <div id="map"></div>
+
+
+      <footer>
+          <form >
+            <container id="inputSection1">
+                <input type="text" name="name" value="Name"><br>
+                <input type="email" name="email" value="Email"><br>
+                <input type="text" name="subject" value="Subject"><br>
+            </container>
+            <container id="inputSection2">
+                <textarea name="review" value="Write your opinion here..." rows="10" cols="30"></textarea><br>
+                <input id="submit" type="submit" value="Send">
+            </container>
+          </form>
+      </footer>
+  </body>
+</html>
