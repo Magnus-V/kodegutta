@@ -7,7 +7,6 @@
       <script type="text/javascript" src="js/scriptActivities.js"></script>
     <title>Arrangement i Bergen</title>
   </head>
-  <body>
     <!-- dette er link til de app symbolene nederst på siden -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
@@ -21,14 +20,13 @@
         <!-- Her er menyens valg -->
         <div class="topnav" id="myTopnav">
       <a href="index.html">Forsiden</a>
-      <a href="GoogleMaps.html">Kart over toalett</a>
+      <a href="GoogleMaps.html">Toalettkart</a>
       <a href="activities.html" class="active">Aktiviteter</a>
-      <a href="side3.html">Steder å spise</a>
+      <a href="side3.html">Spisesteder</a>
       <a href="side4.html">Uteliv</a>
       <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="Meny()">&#9776;</a> </div>
 
       <!-- Her er selve innholdet på nettsiden. h1 er hovedoverskriften og h4 underhovedskriften. -->
-      <h1 id="overskrift">Fremtidige arrangementer i Bergen</h1>
 
             <!-- Her er aktivitetene som skal legges inn. De er lagt under klassen "activities", som alle forskjellige arrangementer skal innordnes.
             For å legge til flere arrangementer, lag ny div med ny id innunder activities. Rediger hvordan det ser ut i CSS.
@@ -60,14 +58,24 @@
                   Ny hot bergensrapper er i byen. Unge Cray-Zee er det nyeste tilskuddet fra GBC-huset.
                   Med frekke beats og syke tekster har han tatt Bergen med storm.
                 </p>
-
               </div>
 
-            </div>
+              <div id="activity3">
+
+                <!-- Format til arrangment. Selvforklarende. -->
+                <h2 id="activityName"> Se <a href="http://www.brann.no/">Brann</a> ta gullet hem </a> </h2>
+                <p id="category">Fotball/Underholdning</p>
+                <p id="date">25.10.2018</p>
+                <p id="location">Brann Stadion</p>
+                <p id="mainText">Brann ligger an til å vinne Eliteserien i 2018.
+                Møt opp og hei de fram til seier mot selveste Roseborg</p>
+              </div>
+              </div>
 
             <div id="merBergen">
               <p>Se mer om hva som skjer i Bergen <a href="https://www.ba.no/vis/kalender/">HER</a></p>
             </div>
+
 
           <!-- her er for de app symbolene som linker til stylesheete på toppen -->
           <footer class="w3-container w3-padding-64 w3-center w3-opacity">
@@ -82,5 +90,3 @@
           </footer>
       </body>
     </html>
-  </body>
-</html>

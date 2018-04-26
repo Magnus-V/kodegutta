@@ -1,9 +1,30 @@
-h1, p, h3 {text-align: center;}
+h3 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px;
+}
+
+p, h1, h2 {
+  text-align: center;
+}
+
+.velkommen {
+  color: #dee1e7;
+  font-family: fantasy;
+  text-shadow: 3px 2px #4566ab;
+}
+
+h10 {
+  margin-left: 18px;
+}
 
 #bilde0 {
   display: flex;
-  width: 100%;
+  width: 75%;
   height: auto;
+  margin-left:auto;
+  margin-right: auto;
 }
 
 #bilde1 {
@@ -12,12 +33,20 @@ h1, p, h3 {text-align: center;}
     padding-left: 20px;
     padding-right: 20px;
 }
+#bilde1:hover {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
 
 #bilde2 {
   width: 100%;
   display: flex;
   padding-left: 20px;
   padding-right: 20px;
+}
+#bilde2:hover {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
 }
 
 #bilde3 {
@@ -31,7 +60,8 @@ a:active {
 body {
     font-family: Arial;
     padding:20px;
-    background: #f1f1f1;
+    background: linear-gradient(#D3D3D3, #5c8fc7);
+
 }
 /* Create two unequal columns that floats next to each other */
 /* Left column */
@@ -53,12 +83,13 @@ body {
 /* Right column */
 .rightcolumn {
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
     justify-content: space-between;
     float: right;
     width: 25%;
-    background-color: #f1f1f1;
+    background-color: linear-gradient(grey, #224ba1);
     padding-left: 100px;
+    margin-top: 50px;
 }
 
 .cardfoot {
@@ -69,9 +100,9 @@ body {
 /* Add a card effect for articles */
 .card {
      justify-content: center;
-     background: linear-gradient(grey, yellow);
+     background: linear-gradient(lightgrey, #224ba1);
      padding: 0px;
-     margin-top: 20px;
+     margin-top: 50px;
      max-width: 100%;
      border-radius: 20px;
 }
@@ -107,17 +138,21 @@ body {margin:0;}
   display: flex;
   overflow: hidden;
   background-color: #333;
+  width: 75%;
+  margin-left:auto;
+  margin-right: auto;
 }
 
 /* For linkene i hamburger-menyen */
 .topnav a {
   float: left;
-  display: block;
+  display: flex;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+  width: 50%;
 }
 
 .topnav a:hover {
