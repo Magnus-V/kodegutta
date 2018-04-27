@@ -1,27 +1,44 @@
 var url = "https://hotell.difi.no/api/json/bergen/dokart?";
 
-var toiletObject = retrieveJSON();
 var listOfLists = [];
 
-function retrieveJSON(){
-  var req = new XMLHttpRequest();
-  req.responseType = 'json';
-  req.open('GET', url, true);
-  req.onload  = function() {
-    toiletObject = req.response;
- };
- req.send(null);
-}
+var getJSON = function(url, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.responseType = 'json';
+        xhr.onload = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            callback(xhr.response)
+          }
+        };
+        xhr.send();
+      };
+
+      // Skjekker for feil og kjører fylliste viss ikke feil.
+      getJSON(url, function(jsonData) {
+
+
+
+              data = jsonData.entries;
+              console.log(data);
+
+
+      });
 
 
 function createNumberedList(){
+  getJSON(url, function(toiletObject){
   var ol = document.createElement('ol');
   document.getElementById('liste').appendChild(ol);
   for(i=0; i < toiletObject.entries.length; i++) {
      var li = document.createElement('li');
      li.innerHTML = toiletObject.entries[i].plassering;
      ol.appendChild(li);
+   })
 };
+}
+
+
 
 function searchHerre(){
   var herreList = [];
