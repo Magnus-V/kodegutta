@@ -24,18 +24,18 @@ function createNumberedList(){
      ol.appendChild(li);
    };
 });
+}
 
-function initMap(){
+function initMap () {
 
   var map = new google.maps.Map(document.getElementById('map'), {
-            center: {
-                lat: 60.391011,
-                lng: 5.325950
-            },
-            zoom: 14
-        });
-      }
-
+    center: {
+            lat: 60.391011,
+            lng: 5.325950
+    },
+      zoom: 14
+    });
+  }
 
 
 function searchHerre(){
@@ -56,7 +56,8 @@ function searchDame(){
   listOfLists.push(dameList);
 }
 
-}
+
+
 
 
 
