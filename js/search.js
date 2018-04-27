@@ -34,10 +34,11 @@ function createNumberedList(){
      var li = document.createElement('li');
      li.innerHTML = toiletObject.entries[i].plassering;
      ol.appendChild(li);
-   })
-};
+   }
+})
 }
 
+/**
 
 
 function searchHerre(){
@@ -54,10 +55,10 @@ function searchDame(){
   for(i=0; i<toiletObject.entries.length; i++){
     if(toiletObject.entries[i].dame !="NULL")
     dameList.push(toiletObject.entries[i]);
-  }
+  };
   listOfLists.push(dameList);
 }
-
+/**
 
 function simpleSearch(){
   resultList = [];
@@ -70,5 +71,4 @@ function simpleSearch(){
   var regexStellerom =
 
 }
-
-}
+*/
