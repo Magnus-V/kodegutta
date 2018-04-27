@@ -21,4 +21,6 @@ function createNumberedList(){
      li.innerHTML = toiletObject.entries[i].plassering;
      ol.appendChild(li);
 };
+
+
 }
