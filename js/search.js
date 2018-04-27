@@ -12,19 +12,7 @@ var getJSON = function(url, callback) {
           }
         };
         xhr.send();
-      };
-
-      // Skjekker for feil og kjører fylliste viss ikke feil.
-      getJSON(url, function(jsonData) {
-
-
-
-              data = jsonData.entries;
-              console.log(data);
-
-
-      });
-
+      }
 
 function createNumberedList(){
   getJSON(url, function(toiletObject){
@@ -34,11 +22,20 @@ function createNumberedList(){
      var li = document.createElement('li');
      li.innerHTML = toiletObject.entries[i].plassering;
      ol.appendChild(li);
-   }
-})
-}
+   };
+});
 
-/**
+function initMap(){
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+            center: {
+                lat: 60.391011,
+                lng: 5.325950
+            },
+            zoom: 14
+        });
+      }
+
 
 
 function searchHerre(){
@@ -58,6 +55,29 @@ function searchDame(){
   };
   listOfLists.push(dameList);
 }
+
+}
+
+
+
+
+/**
+function makeMarkerList(){
+          getJSON(url, function(jsonData){
+            data = jsonData.entries;
+            for(i=0; i < data.length; i++) {
+              markerList.push(new google.maps.Marker({
+                position: {
+                  lat: parseFloat(data[i].latitude),
+                  lng: parseFLoat(data[i].longitude)
+                },
+                map: map,
+                label: i + 1 + ""
+              }))
+            }
+          })
+      };
+      makeMarkerList();
 /**
 
 function simpleSearch(){
@@ -71,4 +91,15 @@ function simpleSearch(){
   var regexStellerom =
 
 }
+
+// Skjekker for feil og kjører fylliste viss ikke feil.
+getJSON(url, function(jsonData) {
+
+
+
+        data = jsonData.entries;
+        console.log(data);
+
+
+});
 */

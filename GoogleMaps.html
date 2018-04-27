@@ -13,18 +13,6 @@
   <!--  <script type="text/javascript" src="js/scriptGoogleMaps.js"></script> -->
     <script type="text/javascript" src="js/search.js"></script>
     <title>Kart</title>
-
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 80%;
-        width: auto;
-        margin-left: 10%;
-        margin-right: 10%;
-      }
-      
-    </style>
   </head>
 
   <header> <img id="bilde0" src="img/bergen2.jpg" height="400" width="1300">
@@ -41,12 +29,10 @@
 
   <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="Meny()">&#9776;</a> </div>
 
-  <!--  <div onload="initMap();" id="map"></div>
-    <button onclick="initWC();" id="WCmap"> Trykk her for kart over tilgjengelige toalett</button>-
-  -->
-    <div id="sjekk ut">
-      <button onclick="retrieveJSON();"> Console.log </button>
-    </div>
+  <div id="map">
+      <button onclick="initMap();">Trykk her for kart </button>
+  </div>
+
     <button onclick="createNumberedList();"> Print out numbered list</button>
 
     <div id="liste">
