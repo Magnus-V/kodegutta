@@ -41,7 +41,7 @@ function initMap () {
     });
   }
 
-
+//Sjekker om lokalisjonen har herretoalett
 function searchHerre(){
   getJSON(url, function(toiletObject){
   var herreList = [];
@@ -53,6 +53,7 @@ function searchHerre(){
   listOfLists.push(herreList);
 })}
 
+//Søker etter om lokalisjonen har dametoalett
 function searchDame(){
   getJSON(url, function(toiletObject){
   var dameList = [];
@@ -63,6 +64,7 @@ function searchDame(){
   listOfLists.push(dameList);
 })}
 
+//Sjekker om lokalisjonen er tilpasset handikappede.
 function searchRullestol(){
   getJSON(url, function(toiletObject){
   var rullestolList= [];
@@ -74,6 +76,7 @@ function searchRullestol(){
   listOfLists.push(rullestolList);
 })}
 
+//Sjekker om om lokalisjonen har stellerom.
 function searchStellerom() {
   getJSON(url, function(toiletObject){
   var stelleromList = [];
@@ -85,7 +88,7 @@ function searchStellerom() {
   listOfLists.push(stelleromList);
 })}
 
-
+//Sjekker prisen på lokalisjonen.
 function searchGratis() {
   getJSON(url, function(toiletObject){
   var gratisList = [];
@@ -98,38 +101,15 @@ function searchGratis() {
 })}
 
 
-
-
-
-
-/**
-function makeMarkerList(){
-          getJSON(url, function(jsonData){
-            data = jsonData.entries;
-            for(i=0; i < data.length; i++) {
-              markerList.push(new google.maps.Marker({
-                position: {
-                  lat: parseFloat(data[i].latitude),
-                  lng: parseFLoat(data[i].longitude)
-                },
-                map: map,
-                label: i + 1 + ""
-              }))
-            }
-          })
-      };
-      makeMarkerList();
-/**
-
 function simpleSearch(){
   resultList = [];
-  var regexAdresse =
-  var regexDame =
-  var regexPissoir =
-  var regexPlassering =
-  var regexPris =
-  var regexRullestol =
-  var regexStellerom =
+  var regexAdresse = /(adresse)|(address)|(gate)|(vei)/i;
+  var regexDame = /(dame)|(lady)|(woman)|(women)|(kvinne)|(jente)/i
+  var regexPissoir = /(pissior)|(urinal)/i
+  var regexPlassering = /(place)|(plassering)|(lokalisjon)|(sted)/i
+  var regexPris = /(price)|(pris)|(kroner)|(money)/i
+  var regexRullestol = /(rullestol)|(handikap)|(hc)/i
+  var regexStellerom = /(gratis)|(freebie)|(free)|(kostenlos)/i
 
 }
 
