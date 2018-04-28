@@ -100,6 +100,22 @@ function searchGratis() {
   listOfList.push(gratisList);
 })}
 
+function filterResult() {
+  getJSON(url, function(toiletObject){
+  for (i = 0; i < toiletList.entries.length; i++) {
+    var found = true;
+    for (y = 0; y < listOfList.length; y++) {
+      if (!listList[y].includes(toiletObject.entries[i])) {
+        found = false;
+        break; //stopper j-loopen. Hvis den ikke er i en liste trenger den ikke sjekke de andre da objektet skal finne sted i alle listene som er objekter i listList.
+      }
+    }
+    if (keep) {
+      resultList.push(toiletObject.entries[i]);
+    }
+  }})
+  listList = [];
+}
 
 function simpleSearch(){
   resultList = [];
@@ -112,6 +128,25 @@ function simpleSearch(){
   var regexStellerom = /(gratis)|(freebie)|(free)|(kostenlos)/i
 
 }
+}
+ if (regexDame.test(field.value)) {
+   searchDame();
+ }
+ if (regexRullestol.test(field.value)) {
+   searchRullestol();
+ }
+ if (regexStelle.test(field.value)) {
+   searchStellerom();
+ }
+   if (regexGratis.test(field.value)) {
+   searchGratis();
+}
+
+   filterResult();
+   updateMap();
+   makeNewList();
+
+ }
 /**
 // Skjekker for feil og kjører fylliste viss ikke feil.
 getJSON(url, function(jsonData) {
