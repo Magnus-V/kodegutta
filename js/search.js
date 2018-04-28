@@ -100,15 +100,26 @@ function searchGratis() {
   listOfLists.push(gratisList);
 })}
 
+function searchPissior(){
+  getJSON(url, function(toiletObject){
+  var pissoirList = [];
+  for(i=0; i<toiletObject.entries.length; i++){
+    if(toiletObject.entries[i].pissoir_only !="NULL"){
+      pissoirList.push(toiletObject.entries[i])
+    }
+  };
+  listOfLists.push(pissoirList)
+}
+
 function filterResult() {
   getJSON(url, function(toiletObject){
   for (i = 0; i < toiletObject.entries.length; i++) {
     var found = true;
     for (y = 0; y < listOfLists.length; y++) {
-      if (!listList[y].includes(toiletObject.entries[i])) {
+      if (!listOfLists[y].includes(toiletObject.entries[i])) {
         found = false;
-        break; //stopper j-loopen. Hvis den ikke er i en liste trenger den ikke sjekke de andre da objektet skal finne sted i alle listene som er objekter i listList.
-      }
+        break;
+      } //Hvis den ikke eksisterer i en av listene stoppes for-loopen og vi begynner med neste mulige resultat.
     }
     if (keep) {
       resultList.push(toiletObject.entries[i]);
@@ -117,15 +128,23 @@ function filterResult() {
   listOfLists = [];
 }
 
+function newNumberedList() {
+  var newNumberedList = document.getElementById("newNumberedList");
+  newNumberedList.innerHTML = "";
+  for (var i = 0; i < resultList.length; i++) {
+    var listElement = document.createElement("li");
+    listItem.innerHTML = resultList[i].plassering;
+    newNumberedList.appendChild(listElement);
+  }
+
 function simpleSearch(){
   resultList = [];
-  var regexAdresse = /(adresse)|(address)|(gate)|(vei)/i;
-  var regexDame = /(dame)|(lady)|(woman)|(women)|(kvinne)|(jente)/i
+  var regexHerre = /(herre)|(men)|(man)|(gentleman)|(male)/i
+  var regexDame = /(dame)|(female)|(lady)|(woman)|(women)|(kvinne)|(jente)/i
   var regexPissoir = /(pissior)|(urinal)/i
-  var regexPlassering = /(place)|(plassering)|(lokalisjon)|(sted)/i
-  var regexPris = /(price)|(pris)|(kroner)|(money)/i
   var regexRullestol = /(rullestol)|(handikap)|(hc)/i
-  var regexStellerom = /(gratis)|(freebie)|(free)|(kostenlos)/i
+  var regexStellerom = /(stellerom)|(nursery)|(bleieskift)/i
+  var regexGratis =/(gratis)|(freebie)|(free)|(kostenlos)/i
 
 }
 }
@@ -135,12 +154,19 @@ function simpleSearch(){
  if (regexRullestol.test(field.value)) {
    searchRullestol();
  }
- if (regexStelle.test(field.value)) {
+ if (regexStellerom.test(field.value)) {
    searchStellerom();
  }
-   if (regexGratis.test(field.value)) {
+ if (regexGratis.test(field.value)) {
    searchGratis();
-}
+ }
+ if(regexHerre.test(field.value)){
+  searchHerre();
+ }
+ if(regexPissoir.test(field.value)){
+   searchPissior();
+ }
+
 
    filterResult();
    updateMap();
