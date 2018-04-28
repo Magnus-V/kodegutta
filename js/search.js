@@ -21,7 +21,7 @@ var getJSON = function(url, callback) {
 function createNumberedList(){
   getJSON(url, function(toiletObject){
   var ol = document.createElement('ol');
-  document.getElementById('liste').appendChild(ol);
+  document.getElementById('numberedList').appendChild(ol);
   for(i=0; i < toiletObject.entries.length; i++) {
      var li = document.createElement('li');
      li.innerHTML = toiletObject.entries[i].plassering;
@@ -109,9 +109,9 @@ function searchPissior(){
     }
   };
   listOfLists.push(pissoirList)
-}
+})}
 
-function filterResult() {
+function filterResult(){
   getJSON(url, function(toiletObject){
   for (i = 0; i < toiletObject.entries.length; i++) {
     var found = true;
@@ -121,20 +121,21 @@ function filterResult() {
         break;
       } //Hvis den ikke eksisterer i en av listene stoppes for-loopen og vi begynner med neste mulige resultat.
     }
-    if (keep) {
+    if (found) {
       resultList.push(toiletObject.entries[i]);
     }
-  }})
+  }
   listOfLists = [];
+})
 }
 
 function newNumberedList() {
-  var newNumberedList = document.getElementById("newNumberedList");
-  newNumberedList.innerHTML = "";
+  var numberedList = document.getElementById("numberedList");
+  numberedList.innerHTML = "";
   for (var i = 0; i < resultList.length; i++) {
     var listElement = document.createElement("li");
     listItem.innerHTML = resultList[i].plassering;
-    newNumberedList.appendChild(listElement);
+    numberedList.appendChild(listElement);
   }
 
 function simpleSearch(){
@@ -146,8 +147,6 @@ function simpleSearch(){
   var regexStellerom = /(stellerom)|(nursery)|(bleieskift)/i
   var regexGratis =/(gratis)|(freebie)|(free)|(kostenlos)/i
 
-}
-}
  if (regexDame.test(field.value)) {
    searchDame();
  }
@@ -171,8 +170,9 @@ function simpleSearch(){
    filterResult();
    updateMap();
    makeNewList();
-
  }
+}
+
 /**
 // Skjekker for feil og kjører fylliste viss ikke feil.
 getJSON(url, function(jsonData) {
