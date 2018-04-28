@@ -97,14 +97,14 @@ function searchGratis() {
       gratisList.push(toiletObject.entries[i]);
     }
   };
-  listOfList.push(gratisList);
+  listOfLists.push(gratisList);
 })}
 
 function filterResult() {
   getJSON(url, function(toiletObject){
-  for (i = 0; i < toiletList.entries.length; i++) {
+  for (i = 0; i < toiletObject.entries.length; i++) {
     var found = true;
-    for (y = 0; y < listOfList.length; y++) {
+    for (y = 0; y < listOfLists.length; y++) {
       if (!listList[y].includes(toiletObject.entries[i])) {
         found = false;
         break; //stopper j-loopen. Hvis den ikke er i en liste trenger den ikke sjekke de andre da objektet skal finne sted i alle listene som er objekter i listList.
@@ -114,7 +114,7 @@ function filterResult() {
       resultList.push(toiletObject.entries[i]);
     }
   }})
-  listList = [];
+  listOfLists = [];
 }
 
 function simpleSearch(){
