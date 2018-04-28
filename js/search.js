@@ -1,6 +1,10 @@
 var url = "https://hotell.difi.no/api/json/bergen/dokart?";
 
 var listOfLists = [];
+var markerList = [];
+var resultList = [];
+var filterList = [];
+
 
 var getJSON = function(url, callback) {
         var xhr = new XMLHttpRequest();
@@ -39,23 +43,59 @@ function initMap () {
 
 
 function searchHerre(){
+  getJSON(url, function(toiletObject){
   var herreList = [];
-  for(i=0; i < toiletObject.entries.length; i++)
-  if(toiletObject.entries[i].herre != "NULL"){
-    herreList.push(toiletObject.entries[i]);
+  for(i=0; i < toiletObject.entries.length; i++){
+    if(toiletObject.entries[i].herre != "NULL"){
+      herreList.push(toiletObject.entries[i]);
+    }
   }
   listOfLists.push(herreList);
-}
+})}
 
 function searchDame(){
+  getJSON(url, function(toiletObject){
   var dameList = [];
   for(i=0; i<toiletObject.entries.length; i++){
     if(toiletObject.entries[i].dame !="NULL")
     dameList.push(toiletObject.entries[i]);
   };
   listOfLists.push(dameList);
-}
+})}
 
+function searchRullestol(){
+  getJSON(url, function(toiletObject){
+  var rullestolList= [];
+  for(i=0; i< toiletObject.entries.length; i++){
+    if(toiletObject.entries[i].rullestol == 1){
+      rullestolList.push(toiletObject.entries[i]);
+    }
+  };
+  listOfLists.push(rullestolList);
+})}
+
+function searchStellerom() {
+  getJSON(url, function(toiletObject){
+  var stelleromList = [];
+  for (i = 0; i < toiletObject.entries.length; i++) {
+    if (toiletObject.entries[i].stellerom != "NULL") {
+      stelleromList.push(toiletObject.entries[i]);
+    }
+  };
+  listOfLists.push(stelleromList);
+})}
+
+
+function searchGratis() {
+  getJSON(url, function(toiletObject){
+  var gratisList = [];
+  for (var i = 0; i < toiletObject.entries.length; i++) {
+    if (toiletObject.entries[i].pris == "0" || toiletObject.entries[i].pris == "NULL") {
+      gratisList.push(toiletObject.entries[i]);
+    }
+  };
+  listOfList.push(gratisList);
+})}
 
 
 
