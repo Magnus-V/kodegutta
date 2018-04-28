@@ -112,7 +112,7 @@ function simpleSearch(){
   var regexStellerom = /(gratis)|(freebie)|(free)|(kostenlos)/i
 
 }
-
+/**
 // Skjekker for feil og kjører fylliste viss ikke feil.
 getJSON(url, function(jsonData) {
 
