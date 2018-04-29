@@ -99,12 +99,14 @@ function searchStellerom() {
 function searchGratis() {
   getJSON(url, function(toiletObject){
   var gratisList = [];
-  for (var i = 0; i < toiletObject.entries.length; i++) {
+  for (i = 0; i < toiletObject.entries.length; i++) {
     if (toiletObject.entries[i].pris == "0" || toiletObject.entries[i].pris == "NULL") {
       gratisList.push(toiletObject.entries[i]);
     }
   };
+  console.log(gratisList);
   listOfLists.push(gratisList);
+  console.log(listOfLists);
 })}
 
 function searchPissior(){
@@ -174,7 +176,14 @@ function simpleSearch(){
  if(regexPissoir.test(field.value)){
    searchPissior();
  }
+   console.log("ListOflist før filter");
+   console.log(listOfLists);
    filterResult();
+   console.log("ResultList:");
+   console.log(resultList);
+   console.log("ListOfList etter filter");
+   console.log(listOfLists);
+
    newNumberedList();
  }
 
