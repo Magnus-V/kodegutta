@@ -30,22 +30,18 @@
   <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="Meny()">&#9776;</a> </div>
 
 
-      <button onclick="initMap();">Trykk her for kart </button>
-      <div id="map"></div>
+      <button onclick="createNumberedList();">Trykk her for liste</button>
 
 
       <form>
-         <input type="text" name="simpleSearch" id="simpleSearch" placeholder="Search for toilets here..."/>
+         <input type="text" name="simpleSearch" id="simpleSearchField" placeholder="Find your next toilet here!"/>
          <input type="button" id="searchButton" value="Search"/>
        </form>
 
-       <ol id="numberedList"></ol>
+       <div id="numberedList"> </div>
 
     <div id="liste">
     </div>
-          <script async defer
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaL9QUhf2uf3HhOajXhAIDx32wiy4eCWY&callback=initMaps">
-          </script>
 
     <!-- her er for de app symbolene som linker til stylesheete på toppen -->
     <footer class="w3-container w3-padding-64 w3-center w3-opacity">

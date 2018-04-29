@@ -18,6 +18,13 @@ var getJSON = function(url, callback) {
         xhr.send();
       }
 
+
+
+window.onload = function () {
+              document.getElementById("searchButton").addEventListener("click", simpleSearch);
+              field = document.getElementById("simpleSearchField");
+      }
+
 function createNumberedList(){
   getJSON(url, function(toiletObject){
   var ol = document.createElement('ol');
@@ -131,12 +138,14 @@ function filterResult(){
 
 function newNumberedList() {
   var numberedList = document.getElementById("numberedList");
-  numberedList.innerHTML = "";
+  var ol = document.createElement('ol');
+  numberedList.appendChild(ol);
   for (var i = 0; i < resultList.length; i++) {
     var listElement = document.createElement("li");
     listItem.innerHTML = resultList[i].plassering;
-    numberedList.appendChild(listElement);
+    ol.appendChild(listElement);
   }
+}
 
 function simpleSearch(){
   resultList = [];
@@ -165,13 +174,10 @@ function simpleSearch(){
  if(regexPissoir.test(field.value)){
    searchPissior();
  }
-
-
    filterResult();
-   updateMap();
-   makeNewList();
+   newNumberedList();
  }
-}
+
 
 /**
 // Skjekker for feil og kjører fylliste viss ikke feil.
