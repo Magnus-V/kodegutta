@@ -104,9 +104,7 @@ function searchGratis() {
       gratisList.push(toiletObject.entries[i]);
     }
   };
-  console.log(gratisList);
   listOfLists.push(gratisList);
-  console.log(listOfLists);
 })}
 
 function searchPissior(){
@@ -120,22 +118,33 @@ function searchPissior(){
   listOfLists.push(pissoirList)
 })}
 
+function delayFilterResult(){
+  var filterDelayer = setTimeout(filterResult, 100);
+}
+
 function filterResult(){
   getJSON(url, function(toiletObject){
+    console.log(listOfLists);
   for (i = 0; i < toiletObject.entries.length; i++) {
     var found = true;
-    for (y = 0; y < listOfLists.length; y++) {
+     for (y = 0; y < listOfLists.length; y++) {
       if (!listOfLists[y].includes(toiletObject.entries[i])) {
-        found = false;
-        break;
-      } //Hvis den ikke eksisterer i en av listene stoppes for-loopen og vi begynner med neste mulige resultat.
-    }
+      found = false;
+      break;
+     } //Hvis den ikke eksisterer i en av listene stoppes for-loopen og vi begynner med neste mulige resultat
     if (found) {
       resultList.push(toiletObject.entries[i]);
     }
   }
   listOfLists = [];
-})
+}})
+}
+
+var listDelayer;
+
+
+function delayNewNumberedList(){
+  listDelayer = setTimeout(newNumberedList, 10);
 }
 
 function newNumberedList() {
@@ -144,9 +153,11 @@ function newNumberedList() {
   numberedList.appendChild(ol);
   for (var i = 0; i < resultList.length; i++) {
     var listElement = document.createElement("li");
-    listItem.innerHTML = resultList[i].plassering;
+    console.log(resultList[1].plassering);
+    listElement.innerHTML = resultList[i].plassering;
     ol.appendChild(listElement);
   }
+
 }
 
 function simpleSearch(){
@@ -179,14 +190,15 @@ function simpleSearch(){
    console.log("ListOflist før filter");
    console.log(listOfLists);
    filterResult();
+
    console.log("ResultList:");
    console.log(resultList);
-   console.log("ListOfList etter filter");
-   console.log(listOfLists);
 
-   newNumberedList();
+
+   delayNewNumberedList();
+
+
  }
-
 
 /**
 // Skjekker for feil og kjører fylliste viss ikke feil.
