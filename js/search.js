@@ -130,6 +130,7 @@ function filterResult(){
     for (y = 0; y < listOfLists.length; y++) {
     if (!listOfLists[y].includes(toiletObject.entries)) {
        found = false;
+
        break;
      } //Hvis den ikke eksisterer i en av listene stoppes for-loopen og vi begynner med neste mulige resultat
     if (found) {
@@ -137,8 +138,6 @@ function filterResult(){
     }
   }
   }
-  console.log("FAEN NÅ BLIR DU JO FAEN PUSHA SOM FAEN DIN FAEN")
-  console.log(resultList);
   listOfLists = [];
 })
 }
