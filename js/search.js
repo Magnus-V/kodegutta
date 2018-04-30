@@ -118,33 +118,35 @@ function searchPissior(){
   listOfLists.push(pissoirList)
 })}
 
+
 function delayFilterResult(){
-  var filterDelayer = setTimeout(filterResult, 100);
+  setTimeout(filterResult, 10);
 }
 
 function filterResult(){
   getJSON(url, function(toiletObject){
-    console.log(listOfLists);
   for (i = 0; i < toiletObject.entries.length; i++) {
     var found = true;
-     for (y = 0; y < listOfLists.length; y++) {
-      if (!listOfLists[y].includes(toiletObject.entries[i])) {
-      found = false;
-      break;
+    for (y = 0; y < listOfLists.length; y++) {
+    if (!listOfLists[y].includes(toiletObject.entries)) {
+       found = false;
+       break;
      } //Hvis den ikke eksisterer i en av listene stoppes for-loopen og vi begynner med neste mulige resultat
     if (found) {
       resultList.push(toiletObject.entries[i]);
     }
   }
+  }
+  console.log("FAEN NÅ BLIR DU JO FAEN PUSHA SOM FAEN DIN FAEN")
+  console.log(resultList);
   listOfLists = [];
-}})
+})
 }
 
-var listDelayer;
-
+var delayer;
 
 function delayNewNumberedList(){
-  listDelayer = setTimeout(newNumberedList, 10);
+  delayer = setTimeout(newNumberedList, 100);
 }
 
 function newNumberedList() {
@@ -189,7 +191,10 @@ function simpleSearch(){
  }
    console.log("ListOflist før filter");
    console.log(listOfLists);
-   filterResult();
+   delayFilterResult();
+
+   console.log("ListOfList etter filter");
+   console.log(listOfLists);
 
    console.log("ResultList:");
    console.log(resultList);
