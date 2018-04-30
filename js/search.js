@@ -3,8 +3,6 @@ var url = "https://hotell.difi.no/api/json/bergen/dokart?";
 var listOfLists = [];
 var markerList = [];
 var resultList = [];
-var filterList = [];
-
 
 var getJSON = function(url, callback) {
         var xhr = new XMLHttpRequest();
@@ -29,13 +27,15 @@ function createNumberedList(){
   getJSON(url, function(toiletObject){
   var ol = document.createElement('ol');
   document.getElementById('numberedList').appendChild(ol);
-  for(i=0; i < toiletObject.entries.length; i++) {
+  for(var i=0; i < toiletObject.entries.length; i++) {
      var li = document.createElement('li');
      li.innerHTML = toiletObject.entries[i].plassering;
      ol.appendChild(li);
    };
 });
 }
+
+createNumberedList();
 
 function initMap () {
 
@@ -52,7 +52,7 @@ function initMap () {
 function searchHerre(){
   getJSON(url, function(toiletObject){
   var herreList = [];
-  for(i=0; i < toiletObject.entries.length; i++){
+  for(var i=0; i < toiletObject.entries.length; i++){
     if(toiletObject.entries[i].herre != "NULL"){
       herreList.push(toiletObject.entries[i]);
     }
@@ -64,7 +64,7 @@ function searchHerre(){
 function searchDame(){
   getJSON(url, function(toiletObject){
   var dameList = [];
-  for(i=0; i<toiletObject.entries.length; i++){
+  for(var i=0; i<toiletObject.entries.length; i++){
     if(toiletObject.entries[i].dame !="NULL")
     dameList.push(toiletObject.entries[i]);
   };
@@ -75,7 +75,7 @@ function searchDame(){
 function searchRullestol(){
   getJSON(url, function(toiletObject){
   var rullestolList= [];
-  for(i=0; i< toiletObject.entries.length; i++){
+  for(var i=0; i< toiletObject.entries.length; i++){
     if(toiletObject.entries[i].rullestol == 1){
       rullestolList.push(toiletObject.entries[i]);
     }
@@ -87,7 +87,7 @@ function searchRullestol(){
 function searchStellerom() {
   getJSON(url, function(toiletObject){
   var stelleromList = [];
-  for (i = 0; i < toiletObject.entries.length; i++) {
+  for (var i = 0; i < toiletObject.entries.length; i++) {
     if (toiletObject.entries[i].stellerom != "NULL") {
       stelleromList.push(toiletObject.entries[i]);
     }
@@ -99,7 +99,7 @@ function searchStellerom() {
 function searchGratis() {
   getJSON(url, function(toiletObject){
   var gratisList = [];
-  for (i = 0; i < toiletObject.entries.length; i++) {
+  for (var i = 0; i < toiletObject.entries.length; i++) {
     if (toiletObject.entries[i].pris == "0" || toiletObject.entries[i].pris == "NULL") {
       gratisList.push(toiletObject.entries[i]);
     }
@@ -110,7 +110,7 @@ function searchGratis() {
 function searchPissior(){
   getJSON(url, function(toiletObject){
   var pissoirList = [];
-  for(i=0; i<toiletObject.entries.length; i++){
+  for(var i=0; i<toiletObject.entries.length; i++){
     if(toiletObject.entries[i].pissoir_only !="NULL"){
       pissoirList.push(toiletObject.entries[i])
     }
@@ -125,27 +125,27 @@ function delayFilterResult(){
 
 function filterResult(){
   getJSON(url, function(toiletObject){
-  for (i = 0; i < toiletObject.entries.length; i++) {
+  for (var i = 0; i<toiletObject.entries.length; i++) {
     var found = true;
-    for (y = 0; y < listOfLists.length; y++) {
-    if (!listOfLists[y].includes(toiletObject.entries)) {
+    for (var y = 0; y<listOfLists.length; y++) {
+     if (!listOfLists[0][y] === (toiletObject.entries[i])) {
        found = false;
-
        break;
-     } //Hvis den ikke eksisterer i en av listene stoppes for-loopen og vi begynner med neste mulige resultat
+     }
+   };
+    //Hvis den ikke eksisterer i en av listene stoppes for-loopen og vi begynner med neste mulige resultat
     if (found) {
       resultList.push(toiletObject.entries[i]);
     }
-  }
-  }
+  };
   listOfLists = [];
-})
-}
+
+})}
 
 var delayer;
 
 function delayNewNumberedList(){
-  delayer = setTimeout(newNumberedList, 100);
+  delayer = setTimeout(newNumberedList, 500);
 }
 
 function newNumberedList() {
@@ -154,12 +154,12 @@ function newNumberedList() {
   numberedList.appendChild(ol);
   for (var i = 0; i < resultList.length; i++) {
     var listElement = document.createElement("li");
-    console.log(resultList[1].plassering);
     listElement.innerHTML = resultList[i].plassering;
     ol.appendChild(listElement);
   }
 
 }
+
 
 function simpleSearch(){
   resultList = [];
@@ -186,7 +186,7 @@ function simpleSearch(){
   searchHerre();
  }
  if(regexPissoir.test(field.value)){
-   searchPissior();
+   searchPissior()
  }
    console.log("ListOflist før filter");
    console.log(listOfLists);
