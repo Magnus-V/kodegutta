@@ -199,7 +199,7 @@ function simpleSearch(){
    console.log("ResultList:");
    console.log(resultList);
 
-   
+
    delayNewNumberedList();
  }
 
