@@ -3,6 +3,8 @@ var url = "https://hotell.difi.no/api/json/bergen/dokart?";
 var listOfLists = [];
 var markerList = [];
 var resultList = [];
+var filterList = [];
+
 
 var getJSON = function(url, callback) {
         var xhr = new XMLHttpRequest();
@@ -34,8 +36,6 @@ function createNumberedList(){
    };
 });
 }
-
-createNumberedList();
 
 function initMap () {
 
@@ -127,25 +127,26 @@ function filterResult(){
   getJSON(url, function(toiletObject){
   for (var i = 0; i<toiletObject.entries.length; i++) {
     var found = true;
-    for (var y = 0; y<listOfLists.length; y++) {
-     if (!listOfLists[0][y] === (toiletObject.entries[i])) {
+    for (var y = 0; y < listOfLists.length; y++) {
+     if (!listOfLists[y].includes(toiletObject.entries[i])) {
        found = false;
        break;
-     }
-   };
+      }
+        }
     //Hvis den ikke eksisterer i en av listene stoppes for-loopen og vi begynner med neste mulige resultat
     if (found) {
       resultList.push(toiletObject.entries[i]);
     }
-  };
+  }
   listOfLists = [];
-
-})}
+}
+)
+}
 
 var delayer;
 
 function delayNewNumberedList(){
-  delayer = setTimeout(newNumberedList, 500);
+  delayer = setTimeout(newNumberedList, 100);
 }
 
 function newNumberedList() {
@@ -154,12 +155,12 @@ function newNumberedList() {
   numberedList.appendChild(ol);
   for (var i = 0; i < resultList.length; i++) {
     var listElement = document.createElement("li");
+    console.log(resultList[1].plassering);
     listElement.innerHTML = resultList[i].plassering;
     ol.appendChild(listElement);
   }
 
 }
-
 
 function simpleSearch(){
   resultList = [];
@@ -198,10 +199,8 @@ function simpleSearch(){
    console.log("ResultList:");
    console.log(resultList);
 
-
+   
    delayNewNumberedList();
-
-
  }
 
 /**
