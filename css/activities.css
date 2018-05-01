@@ -89,14 +89,6 @@
 /* Sentrerer teksten. */
 h1, p, h2, h4 {text-align: center;}
 
-/* Redigerer underhovedskriften h1 */
-#overskrift {
-  margin:0.8em;
-  font-size: 4em;
-  font-family: Verdana;
-  font-style: oblique;
-}
-
 /* Bilde 1. Bergen? */
 
 body {
