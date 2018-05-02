@@ -136,10 +136,11 @@ function search() {
             if(truthChecker.length == searchParams.length) { //if all params are true, person is pushed.
                 searchResults.push(persons[i]);
             }
+                console.log(searchResults);
         }
     }
 
-    console.log(searchResults);
+
 }
 
 function filterResult(){
@@ -160,6 +161,10 @@ function filterResult(){
   listOfLists = [];
 }
 )
+}
+
+function resultFilter(){
+
 }
 
 var delayer;
