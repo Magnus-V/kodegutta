@@ -26,6 +26,7 @@ function start2() {
 var searchResults = [];
 var searchObj = {};
 
+
 // avansert søk funksjonen
 function search(dataUrl) {
     searchResults = [];
@@ -267,7 +268,7 @@ function hurtigsok(dataUrl) {
         searchObj.stellerom = "1";
     }
     if (gratis.test(rasktsok.value)) {
-        searchObj.pris = "0";
+        searchObj.pris = "0" || searchObj.pris = 'NULL';
     }
     if (aappen.test(rasktsok.value)) {
 
