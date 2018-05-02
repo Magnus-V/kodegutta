@@ -123,25 +123,43 @@ function delayFilterResult(){
   setTimeout(filterResult, 10);
 }
 
+var searchObj = {};
+var searchParams = [];
 
-function search() {
-    var searchResults  = [];
-    var searchParams = Object.keys(listOfLists);
-    for(i=0; i < listOfLists.length; i++) {
-        var truthChecker = [] // will contain boolean values "true" for each param checked.
-        for(y=0; y < listOfLists.length; y++) {
-            if(persons[i][searchParams[y]] == searchObject[searchParams[y]]) {
-                truthChecker.push(true);
-            }
-            if(truthChecker.length == searchParams.length) { //if all params are true, person is pushed.
-                searchResults.push(persons[i]);
-            }
-                console.log(searchResults);
-        }
-    }
+function simpleSearch() {
+      searchObj  = {};
+      resultList = [];
 
+      var regexHerre = /(herre)|(men)|(man)|(gentleman)|(male)/i
+      var regexDame = /(dame)|(female)|(lady)|(woman)|(women)|(kvinne)|(jente)/i
+      var regexPissoir = /(pissior)|(urinal)/i
+      var regexRullestol = /(rullestol)|(handikap)|(hc)/i
+      var regexStellerom = /(stellerom)|(nursery)|(bleieskift)/i
+      var regexGratis =/(gratis)|(freebie)|(free)|(kostenlos)/i
 
-}
+      if(regexHerre.test(field.value)){
+        searchObj.herre ='1';
+      }
+      if(regexDame.test(field.value)){
+        searchObj.dame = '1';
+      }
+      if(regexPissoir.test(field.value)){
+       searchObj.pissior = '1';
+      }
+      if(regexRullestol.test(field.value)){
+        searchObj.stellerom = '1';
+      }
+      if(regexRullestol.test(field.value)){
+      searchObj.rullestol = '1';
+      }
+      if (regexGratis.test(field.value)) {
+      searchObj.pris = '0';
+      searchObj.pris = 'NULL';
+      }
+      resultFilter();
+      delayNewNumberedList();
+      }
+
 
 function filterResult(){
   getJSON(url, function(toiletObject){
@@ -164,8 +182,22 @@ function filterResult(){
 }
 
 function resultFilter(){
-
-}
+    getJSON(url, function(toiletObject){
+    resultList = [];
+    console.log(searchObj);
+    var searchParam = Object.keys(searchObj);
+    for(i = 0; i<toiletObject.entries.length; i++){
+      var sumOfFilter = 0;
+      for(var j=0; j < searchParam.length; j++){
+        if(toiletObject.entries[i][searchParam[j]] === searchObj[searchParam[j]]){
+            sumOfFilter++;
+          }
+      };
+    if(sumOfFilter === searchParam.length){
+      resultList.push(toiletObject.entries[i]);
+    }
+};
+})}
 
 var delayer;
 
@@ -179,13 +211,13 @@ function newNumberedList() {
   numberedList.appendChild(ol);
   for (var i = 0; i < resultList.length; i++) {
     var listElement = document.createElement("li");
-    console.log(resultList[1].plassering);
     listElement.innerHTML = resultList[i].plassering;
     ol.appendChild(listElement);
   }
 
 }
 
+/*
 function simpleSearch(){
   resultList = [];
   var regexHerre = /(herre)|(men)|(man)|(gentleman)|(male)/i
