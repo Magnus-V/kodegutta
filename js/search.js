@@ -123,6 +123,25 @@ function delayFilterResult(){
   setTimeout(filterResult, 10);
 }
 
+
+function search() {
+    var searchResults  = [];
+    var searchParams = Object.keys(listOfLists);
+    for(i=0; i < listOfLists.length; i++) {
+        var truthChecker = [] // will contain boolean values "true" for each param checked.
+        for(y=0; y < listOfLists.length; y++) {
+            if(persons[i][searchParams[y]] == searchObject[searchParams[y]]) {
+                truthChecker.push(true);
+            }
+            if(truthChecker.length == searchParams.length) { //if all params are true, person is pushed.
+                searchResults.push(persons[i]);
+            }
+        }
+    }
+
+    console.log(searchResults);
+}
+
 function filterResult(){
   getJSON(url, function(toiletObject){
   for (var i = 0; i<toiletObject.entries.length; i++) {
@@ -199,7 +218,7 @@ function simpleSearch(){
    console.log("ResultList:");
    console.log(resultList);
 
-   
+
    delayNewNumberedList();
  }
 
