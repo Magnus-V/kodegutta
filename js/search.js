@@ -140,7 +140,6 @@ function search() {
         }
     }
 
-
 }
 
 function filterResult(){
