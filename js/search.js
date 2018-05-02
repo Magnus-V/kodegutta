@@ -150,8 +150,8 @@ function filterResult(){
      if (!listOfLists[y].includes(toiletObject.entries[i])) {
        found = false;
        break;
-      }
         }
+      }
     //Hvis den ikke eksisterer i en av listene stoppes for-loopen og vi begynner med neste mulige resultat
     if (found) {
       resultList.push(toiletObject.entries[i]);
