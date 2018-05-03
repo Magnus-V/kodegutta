@@ -24,6 +24,7 @@ var getJSON = function(url, callback) {
 window.onload = function () {
               document.getElementById("searchButton").addEventListener("click", simpleSearch);
               field = document.getElementById("simpleSearchField");
+              //Kjører simpleSearch når vinduet laster inn, slik at markørene og lignende kommer frem.
               simpleSearch();
       }
 
