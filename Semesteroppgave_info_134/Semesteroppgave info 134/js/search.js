@@ -54,6 +54,8 @@ function makeMarkerList () {
 }
 
 makeMarkerList();
+resultFilter();
+delayNewNumberedList();
 
 function newMap () {
 
