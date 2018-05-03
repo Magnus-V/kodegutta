@@ -158,7 +158,6 @@ function searchPissior(){
   listOfLists.push(pissoirList);
 })}
 
-
 function delayFilterResult(){
   setTimeout(filterResult, 10);
 }
