@@ -28,7 +28,7 @@ function initMap () {
         });
       }
 
-      function createNumberedList(){
+function createNumberedList(){
         getJson(url, function(lekeplassObject){
         var ol = document.createElement('ol');
         document.getElementById('liste').appendChild(ol);

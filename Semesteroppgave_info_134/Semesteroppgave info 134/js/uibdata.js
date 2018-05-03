@@ -102,6 +102,7 @@ function finnUtveksling () {
     if(passed.length > 0) {
       passed = [];
     }
+    utvekslingStudie.innerHTML = "";
 
 
 // En 'foor loop' som går gjennom alle utvekslingsavtalene
@@ -181,6 +182,8 @@ function finnUtvekslingMedLand () {
     var selectionLand = document.getElementById("land");
     var optionLandIndex = selectionLand.options[selectionLand.selectedIndex].value;
 
+
+    utvekslingStudie.innerHTML = "";
     var passed = [];
     if(passed.length > 0) {
       passed.length = 0;
