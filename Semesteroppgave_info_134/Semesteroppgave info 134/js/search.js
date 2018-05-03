@@ -83,10 +83,9 @@ function newMap () {
 }
 
 var mapDelayer;
-function delayNewMap(){
-  delayer = setTimeout(function () {
 
-  }, 10);
+function delayNewMap(){
+  delayer = setTimeout(newMap(), 500);
 }
 
 //Sjekker om lokalisjonen har herretoalett
@@ -198,7 +197,7 @@ function simpleSearch() {
       //Metodene som filtrer resultat, skriver ut listen og oppretter et nytt kart.
       resultFilter();
       delayNewNumberedList();
-      newMap();
+      delayNewMap();
       }
 
 
