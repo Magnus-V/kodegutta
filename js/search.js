@@ -107,6 +107,7 @@ function searchGratis() {
   listOfLists.push(gratisList);
 })}
 
+
 function searchPissior(){
   getJSON(url, function(toiletObject){
   var pissoirList = [];
@@ -115,7 +116,7 @@ function searchPissior(){
       pissoirList.push(toiletObject.entries[i])
     }
   };
-  listOfLists.push(pissoirList)
+  listOfLists.push(pissoirList);
 })}
 
 
@@ -123,11 +124,11 @@ function delayFilterResult(){
   setTimeout(filterResult, 10);
 }
 
-var searchObj = {};
+var searchObj = [];
 var searchParams = [];
 
 function simpleSearch() {
-      searchObj  = {};
+      searchObj  = [];
       resultList = [];
 
       var regexHerre = /(herre)|(men)|(man)|(gentleman)|(male)/i
@@ -138,24 +139,24 @@ function simpleSearch() {
       var regexGratis =/(gratis)|(freebie)|(free)|(kostenlos)/i
 
       if(regexHerre.test(field.value)){
-        searchObj.herre ='1';
+        searchHerre();
       }
       if(regexDame.test(field.value)){
-        searchObj.dame = '1';
+        searchDame();
       }
       if(regexPissoir.test(field.value)){
-       searchObj.pissior = '1';
+       searchPissior();
+      }
+      if(regexStellerom.test(field.value)){
+        searchStellerom();
       }
       if(regexRullestol.test(field.value)){
-        searchObj.stellerom = '1';
-      }
-      if(regexRullestol.test(field.value)){
-      searchObj.rullestol = '1';
+        searchRullestol();
       }
       if (regexGratis.test(field.value)) {
-      searchObj.pris = '0';
-      searchObj.pris = 'NULL';
+      searchGratis();
       }
+
       resultFilter();
       delayNewNumberedList();
       }
@@ -184,20 +185,28 @@ function filterResult(){
 function resultFilter(){
     getJSON(url, function(toiletObject){
     resultList = [];
-    console.log(searchObj);
-    var searchParam = Object.keys(searchObj);
     for(i = 0; i<toiletObject.entries.length; i++){
-      var sumOfFilter = 0;
-      for(var j=0; j < searchParam.length; j++){
-        if(toiletObject.entries[i][searchParam[j]] === searchObj[searchParam[j]]){
-            sumOfFilter++;
+      var comparison = toiletObject.entries[i];
+      console.log("Lengde på vanlig list" + listOfLists.length);
+        for(var y=0; y < listOfLists.length; y++){
+          console.log("Lengde på listY " + listOfLists[y].length)
+            for(var x= 0; x< listOfLists[y].length; x++){
+                var searchParam = listOfLists[y][x];
+                console.log("Searchparam toiletObject: ");
+                console.log(comparison);
+                console.log("SearchObj param: ");
+                console.log(searchParam);
+                  if(comparison.plassering === searchParam.plassering){
+                        resultList.push(comparison);
           }
-      };
-    if(sumOfFilter === searchParam.length){
-      resultList.push(toiletObject.entries[i]);
+      }
     }
-};
-})}
+  }
+  listOfLists = [];
+}
+)
+}
+
 
 var delayer;
 
@@ -214,9 +223,11 @@ function newNumberedList() {
     listElement.innerHTML = resultList[i].plassering;
     ol.appendChild(listElement);
   }
-
 }
 
+function clearNumberedList(){
+      var numberedList = document.getElementById("numberedList");
+}
 /*
 function simpleSearch(){
   resultList = [];
