@@ -25,18 +25,6 @@ window.onload = function () {
               field = document.getElementById("simpleSearchField");
       }
 
-function createNumberedList(){
-  getJSON(url, function(toiletObject){
-  var ol = document.createElement('ol');
-  document.getElementById('numberedList').appendChild(ol);
-  for(var i=0; i < toiletObject.entries.length; i++) {
-     var li = document.createElement('li');
-     li.innerHTML = toiletObject.entries[i].plassering;
-     ol.appendChild(li);
-   };
-});
-}
-
 //Initisierer kartet.
 function initMap () {
 
