@@ -188,12 +188,11 @@ function simpleSearch() {
       searchGratis();
       }
 
-      //Metodene som filtrer resultat 
+      //Metodene som filtrer resultat, skriver ut listen og oppretter et nytt kart.
       resultFilter();
       delayNewNumberedList();
       newMap();
       }
-
 
 function filterResult(){
   getJSON(url, function(toiletObject){
@@ -215,6 +214,7 @@ function filterResult(){
 )
 }
 
+//Metoden tar inn listen skapt av søket, og filtrer den basert på om de er samme som i dataen.
 function resultFilter(){
     getJSON(url, function(toiletObject){
     resultList = [];
@@ -223,28 +223,23 @@ function resultFilter(){
       if(listOfLists.length === 0){
           resultList.push(comparison);
       }
-        for(var y=0; y < listOfLists.length; y++){
-          console.log("Lengde på listY " + listOfLists[y].length)
-            for(var x= 0; x< listOfLists[y].length; x++){
-                var searchParam = listOfLists[y][x];
-                console.log("Searchparam toiletObject: ");
-                console.log(comparison);
-                console.log("SearchObj param: ");
-                console.log(searchParam);
-                  if(comparison.plassering === searchParam.plassering){
-                        resultList.push(comparison);
-          }
-      }
+      for(var y=0; y < listOfLists.length; y++){
+        for(var x= 0; x< listOfLists[y].length; x++){
+            var searchParam = listOfLists[y][x];
+            if(comparison.plassering === searchParam.plassering){
+            //Sjekker om de to objektene er like. Hvis så legges de til i resultList.
+              resultList.push(comparison);
+           }
+       }
     }
   }
   listOfLists = [];
-}
-)
-}
+})}
 
 
 var delayer;
-//Delayer so that the numberedList is created
+
+//Delayer so that the numberedList is created at the right time.
 function delayNewNumberedList(){
   delayer = setTimeout(newNumberedList, 100);
 }
@@ -261,57 +256,3 @@ function newNumberedList() {
     ol.appendChild(listElement);
   }
 }
-/*
-function simpleSearch(){
-  resultList = [];
-  var regexHerre = /(herre)|(men)|(man)|(gentleman)|(male)/i
-  var regexDame = /(dame)|(female)|(lady)|(woman)|(women)|(kvinne)|(jente)/i
-  var regexPissoir = /(pissior)|(urinal)/i
-  var regexRullestol = /(rullestol)|(handikap)|(hc)/i
-    var regexStellerom = /(stellerom)|(nursery)|(bleieskift)/i
-    var regexGratis =/(gratis)|(freebie)|(free)|(kostenlos)/i
-
-   if (regexDame.test(field.value)) {
-     searchDame();
-   }
-   if (regexRullestol.test(field.value)) {
-     searchRullestol();
- }
- if (regexStellerom.test(field.value)) {
-   searchStellerom();
- }
- if (regexGratis.test(field.value)) {
-   searchGratis();
- }
- if(regexHerre.test(field.value)){
-  searchHerre();
- }
- if(regexPissoir.test(field.value)){
-   searchPissior()
- }
-   console.log("ListOflist før filter");
-   console.log(listOfLists);
-   delayFilterResult();
-
-   console.log("ListOfList etter filter");
-   console.log(listOfLists);
-
-   console.log("ResultList:");
-   console.log(resultList);
-
-
-   delayNewNumberedList();
- }
-
-/**
-// Skjekker for feil og kjører fylliste viss ikke feil.
-getJSON(url, function(jsonData) {
-
-
-
-        data = jsonData.entries;
-        console.log(data);
-
-
-});
-*/
