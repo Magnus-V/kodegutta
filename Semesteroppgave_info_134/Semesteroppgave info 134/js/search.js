@@ -206,7 +206,6 @@ function newMap () {
     },
     zoom: 14
   });
-  console.log(resultList);
   for (var i = 0; i < resultList.length; i++) {
     newMarkerList.push(new google.maps.Marker({
       position: {
