@@ -158,6 +158,7 @@ function simpleSearch() {
 
       resultFilter();
       delayNewNumberedList();
+
       }
 
 
@@ -186,7 +187,9 @@ function resultFilter(){
     resultList = [];
     for(i = 0; i<toiletObject.entries.length; i++){
       var comparison = toiletObject.entries[i];
-      console.log("Lengde på vanlig list" + listOfLists.length);
+      if(listOfLists.length == 0){
+          resultList.push(comparison);
+      }
         for(var y=0; y < listOfLists.length; y++){
           console.log("Lengde på listY " + listOfLists[y].length)
             for(var x= 0; x< listOfLists[y].length; x++){
@@ -213,8 +216,10 @@ function delayNewNumberedList(){
   delayer = setTimeout(newNumberedList, 100);
 }
 
+//Creates new numbered list based on resultList;
 function newNumberedList() {
   var numberedList = document.getElementById("numberedList");
+  numberedList.innerHTML = "";
   var ol = document.createElement('ol');
   numberedList.appendChild(ol);
   for (var i = 0; i < resultList.length; i++) {
@@ -223,10 +228,6 @@ function newNumberedList() {
     ol.appendChild(listElement);
   }
 }
-
-function clearNumberedList(){
-      var numberedList = document.getElementById("numberedList");
-}
 /*
 function simpleSearch(){
   resultList = [];
@@ -234,14 +235,14 @@ function simpleSearch(){
   var regexDame = /(dame)|(female)|(lady)|(woman)|(women)|(kvinne)|(jente)/i
   var regexPissoir = /(pissior)|(urinal)/i
   var regexRullestol = /(rullestol)|(handikap)|(hc)/i
-  var regexStellerom = /(stellerom)|(nursery)|(bleieskift)/i
-  var regexGratis =/(gratis)|(freebie)|(free)|(kostenlos)/i
+    var regexStellerom = /(stellerom)|(nursery)|(bleieskift)/i
+    var regexGratis =/(gratis)|(freebie)|(free)|(kostenlos)/i
 
- if (regexDame.test(field.value)) {
-   searchDame();
- }
- if (regexRullestol.test(field.value)) {
-   searchRullestol();
+   if (regexDame.test(field.value)) {
+     searchDame();
+   }
+   if (regexRullestol.test(field.value)) {
+     searchRullestol();
  }
  if (regexStellerom.test(field.value)) {
    searchStellerom();
