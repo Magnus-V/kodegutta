@@ -60,34 +60,6 @@ makeMarkerList();
 resultFilter();
 delayNewNumberedList();
 
-//Funksjonen som legger til et nytt map basert på resultatlisten.
-function newMap () {
-
-  map = new google.maps.Map(document.getElementById('map'),{
-    center: {
-      lat: 60.391011,
-      lng: 5.325950
-    },
-    zoom: 14
-  });
-  console.log(resultList);
-  for (var i = 0; i < resultList.length; i++) {
-    newMarkerList.push(new google.maps.Marker({
-      position: {
-        lat: parseFloat(resultList[i].latitude),
-        lng: parseFloat(resultList[i].longitude)
-      },
-      map: map,
-      label: i + 1 + ""
-    }))
-  }
-}
-
-var mapDelayer;
-
-function delayNewMap(){
-  delayer = setTimeout(newMap(), 500);
-}
 
 //Sjekker om lokalisjonen har herretoalett
 function searchHerre(){
@@ -166,7 +138,6 @@ var searchParams = [];
 //Funksjonen som settes ignag når bruker søker.
 function simpleSearch() {
       searchObj  = [];
-      resultList = [];
 
       //Regex som oppdager om bruker spør om en spesifikk ting som kna søkes etter.
       var regexHerre = /(herre)|(men)|(man)|(gentleman)|(male)/i
@@ -197,8 +168,10 @@ function simpleSearch() {
 
       //Metodene som filtrer resultat, skriver ut listen og oppretter et nytt kart.
       resultFilter();
+
       delayNewNumberedList();
-      delayNewMap();
+
+      newMap()
       }
 
 
@@ -224,6 +197,33 @@ function resultFilter(){
   listOfLists = [];
 })}
 
+//Funksjonen som legger til et nytt map basert på resultatlisten.
+function newMap () {
+  map = new google.maps.Map(document.getElementById('map'),{
+    center: {
+      lat: 60.391011,
+      lng: 5.325950
+    },
+    zoom: 14
+  });
+  console.log(resultList);
+  for (var i = 0; i < resultList.length; i++) {
+    newMarkerList.push(new google.maps.Marker({
+      position: {
+        lat: parseFloat(resultList[i].latitude),
+        lng: parseFloat(resultList[i].longitude)
+      },
+      map: map,
+      label: i + 1 + ""
+    }))
+  }
+}
+
+var mapDelayer;
+
+function delayNewMap(){
+  delayer = setTimeout(newMap(), 500);
+}
 
 var delayer;
 
