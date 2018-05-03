@@ -7,7 +7,7 @@ var filterList = [];
 var newMarkerList = [];
 var map;
 
-
+//Henter data fra urlen, inkluderer en mulighet for callbacks.
 var getJSON = function(url, callback) {
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
@@ -20,6 +20,7 @@ var getJSON = function(url, callback) {
         xhr.send();
 }
 
+//Gjør klar søk og søkefelt slik at det er klar for brukeren når vinduet laster.
 window.onload = function () {
               document.getElementById("searchButton").addEventListener("click", simpleSearch);
               field = document.getElementById("simpleSearchField");
@@ -37,6 +38,7 @@ function initMap () {
         });
       }
 
+//Skriver ut markerList på kartet. Slik den opprinnelig skal være.
 function makeMarkerList () {
     getJSON(url, function(jsonData) {
      data = jsonData.entries;
@@ -52,7 +54,7 @@ function makeMarkerList () {
       }
   });
 }
-
+//Inisierer markers og nummerert liste.
 makeMarkerList();
 resultFilter();
 delayNewNumberedList();
