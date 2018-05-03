@@ -88,6 +88,10 @@ body {
     }
 }
 
+#searchButton {
+  padding: 15em, 0.5em, 0.5em, 0.5em;
+}
+
 body {margin:0;}
 .topnav {
   overflow: hidden;
