@@ -11,7 +11,7 @@ var minvalue;
 var indexx;
 
 
-
+// Funksjon som henter datasettet fra url/url2
 var getJson = function(url,callback) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url, true);
@@ -25,7 +25,7 @@ var getJson = function(url,callback) {
 }
 
 
-
+// Initisierer kartet på siden
 function initMap () {
 
   map = new google.maps.Map(document.getElementById('map'), {
@@ -35,15 +35,10 @@ function initMap () {
             },
             zoom: 14
         });
-        poly = new google.maps.Polyline({
-          strokeColor: '#FF0000',
-          strokeOpacity: 1.0,
-          strokeWeight: 3,
-          map: map,
-        })
       }
 
 
+//Funksjon som setter inn options i "html select" = navn på lekeplassene
       function createSelectContent () {
         getJson(url, function (lekeplassObject) {
 
@@ -62,11 +57,13 @@ function initMap () {
       }
       createSelectContent();
 
+//Funksjon som henter index fra "select html" og setter marker på kartet med lat/lng hvor select index === lekeplass navn
       function getFavorite (){
         getJson(url, function (lekeplassObject){
           var selection = document.getElementById("selectListe");
           var optionIndex = selection.options[selection.selectedIndex].value;
 
+// om det alt finnes en favoritt marker på kartet vil den bli fjærnet
           if(markerArray.length > 0) {
 
             clearMarker();
@@ -78,6 +75,7 @@ function initMap () {
 
             if(lekeplassObject.entries[i].navn === optionIndex) {
 
+
               lat = lekeplassObject.entries[i].latitude;
               lng = lekeplassObject.entries[i].longitude;
 
@@ -86,15 +84,18 @@ function initMap () {
                   lat: parseFloat(lat),
                   lng: parseFloat(lng)
                 },
-                map: map
+                map: map,
+                label: 1 + ""
               }))
               }
           }
         })
+// Kaller på funksjonene slik at alt kommer opp når brukeren trykker på 1 knapp
         findClosest();
         closestMarker();
       }
 
+//Funksjon for å ta vekk marker til lekeplass
       function clearMarker () {
         for(i=0; i < markerArray.length; i++) {
           markerArray[i].setMap(null);
@@ -102,6 +103,7 @@ function initMap () {
         markerArray = [];
       }
 
+//Funksjon for å ta vekk marker til toalett
       function clearClosestMarker () {
         for(i=0; i < closestMarkerArray.length; i++) {
           closestMarkerArray[i].setMap(null);
@@ -110,6 +112,7 @@ function initMap () {
       }
 
 
+// Funksjon som regner ut avstanden til alle toalett fra valgt lekeplass
       function findClosest () {
         getJson(url2, function (toiletObject){
           if(distanceArray.length > 0) {
@@ -131,7 +134,7 @@ function initMap () {
         })
       }
 
-
+// Funksjon som finner den minste avstanden til et toalett fra lekeplassen
       function finnMinste () {
          minvalue = distanceArray[0];
         for ( j = 0; j < distanceArray.length; j++) {
@@ -142,11 +145,13 @@ function initMap () {
 
       }
 
+//Funksjon som finner index i distanceaArayen til den med minst avstand
       function findIndex () {
        indexx =  distanceArray.indexOf(minvalue);
         console.log(indexx);
       }
 
+// Funksjon som setter marker til toalettet med kortest avstand til valgt toalett.
       function closestMarker () {
       getJson(url2, function(toiletObject){
 
@@ -161,7 +166,8 @@ function initMap () {
             lat: parseFloat(lat3),
             lng: parseFloat(lng3)
           },
-          map: map
+          map: map,
+          label: 2 + ""
         }))
       })
       }
