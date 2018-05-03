@@ -54,11 +54,13 @@ function makeMarkerList () {
       }
   });
 }
+
 //Inisierer markers og nummerert liste.
 makeMarkerList();
 resultFilter();
 delayNewNumberedList();
 
+//Funksjonen som legger til et nytt map basert på resultatlisten.
 function newMap () {
 
   map = new google.maps.Map(document.getElementById('map'),{
@@ -139,7 +141,7 @@ function searchGratis() {
   listOfLists.push(gratisList);
 })}
 
-
+//Sjekker om lokalisjonen har pissior.
 function searchPissior(){
   getJSON(url, function(toiletObject){
   var pissoirList = [];
@@ -151,17 +153,15 @@ function searchPissior(){
   listOfLists.push(pissoirList);
 })}
 
-function delayFilterResult(){
-  setTimeout(filterResult, 10);
-}
-
 var searchObj = [];
 var searchParams = [];
 
+//Funksjonen som settes ignag når bruker søker.
 function simpleSearch() {
       searchObj  = [];
       resultList = [];
 
+      //Regex som oppdager om bruker spør om en spesifikk ting som kna søkes etter.
       var regexHerre = /(herre)|(men)|(man)|(gentleman)|(male)/i
       var regexDame = /(dame)|(female)|(lady)|(woman)|(women)|(kvinne)|(jente)/i
       var regexPissoir = /(pissior)|(urinal)/i
@@ -188,6 +188,7 @@ function simpleSearch() {
       searchGratis();
       }
 
+      //Metodene som filtrer resultat 
       resultFilter();
       delayNewNumberedList();
       newMap();
