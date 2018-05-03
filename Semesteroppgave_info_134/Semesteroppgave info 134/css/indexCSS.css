@@ -91,7 +91,16 @@ body {
 
 /* Styling til search-button */
 #searchButton {
-  padding: 15em, 0.5em, 0.5em, 0.5em;
+  font-style: italic;
+  background-color: ##595959;
+  color:black;
+}
+
+.searchForm{
+  margin-bottom: 1em;
+  margin-top: 1em;
+  margin-left: 1.5em;
+  margin-right: 0.5em;
 }
 
 /* Styling til topp-navigasjons-menyen */
