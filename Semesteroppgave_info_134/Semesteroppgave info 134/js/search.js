@@ -211,7 +211,7 @@ function resultFilter(){
 
 
 var delayer;
-
+//Delayer so that the numberedList is created 
 function delayNewNumberedList(){
   delayer = setTimeout(newNumberedList, 100);
 }
@@ -219,7 +219,7 @@ function delayNewNumberedList(){
 //Creates new numbered list based on resultList;
 function newNumberedList() {
   var numberedList = document.getElementById("numberedList");
-  numberedList.innerHTML = "";
+  numberedList.innerHTML = ""; //QWAAAAAAARGH
   var ol = document.createElement('ol');
   numberedList.appendChild(ol);
   for (var i = 0; i < resultList.length; i++) {
