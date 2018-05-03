@@ -4,6 +4,7 @@ var listOfLists = [];
 var markerList = [];
 var resultList = [];
 var filterList = [];
+var newMarkerList = [];
 var map;
 
 
@@ -67,7 +68,7 @@ function makeMarkerList () {
 makeMarkerList();
 
 function newMap () {
-  var newMarkerList = [];
+
   map = new google.maps.Map(document.getElementById('map'),{
     center: {
       lat: 60.391011,
