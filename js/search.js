@@ -187,7 +187,9 @@ function resultFilter(){
     resultList = [];
     for(i = 0; i<toiletObject.entries.length; i++){
       var comparison = toiletObject.entries[i];
-      console.log("Lengde på vanlig list" + listOfLists.length);
+      if(listOfLists.length == 0){
+          resultList.push(comparison);
+      }
         for(var y=0; y < listOfLists.length; y++){
           console.log("Lengde på listY " + listOfLists[y].length)
             for(var x= 0; x< listOfLists[y].length; x++){
