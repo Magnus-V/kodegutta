@@ -4,6 +4,7 @@ var listOfLists = [];
 var markerList = [];
 var resultList = [];
 var filterList = [];
+var map;
 
 
 var getJSON = function(url, callback) {
@@ -16,9 +17,7 @@ var getJSON = function(url, callback) {
           }
         };
         xhr.send();
-      }
-
-
+}
 
 window.onload = function () {
               document.getElementById("searchButton").addEventListener("click", simpleSearch);
@@ -37,16 +36,56 @@ function createNumberedList(){
 });
 }
 
+//Initisierer kartet.
 function initMap () {
 
-  var map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map(document.getElementById('map'), {
+            center: {
+                lat: 60.391011,
+                lng: 5.325950
+            },
+            zoom: 14
+        });
+      }
+
+function makeMarkerList () {
+    getJSON(url, function(jsonData) {
+     data = jsonData.entries;
+     for(i = 0; i < data.length ; i++) {
+        markerList.push(new google.maps.Marker({
+        position: {
+            lat: parseFloat(data[i].latitude),
+            lng: parseFloat(data[i].longitude)
+          },
+          map: map,
+          label: i + 1 + ""
+        }))
+      }
+  });
+}
+
+makeMarkerList();
+
+function newMap () {
+  var newMarkerList = [];
+  map = new google.maps.Map(document.getElementById('map'),{
     center: {
-            lat: 60.391011,
-            lng: 5.325950
+      lat: 60.391011,
+      lng: 5.325950
     },
-      zoom: 14
-    });
+    zoom: 14
+  });
+  for (var i = 0; i < resultList.length; i++) {
+    newMarkerList.push(new google.maps.Marker({
+      position: {
+        lat: parseFloat(resultList[i].latitude),
+        lng: parseFloat(resultList[i].longitude)
+      },
+      map: map,
+      label: i + 1 + ""
+    }))
   }
+}
 
 //Sjekker om lokalisjonen har herretoalett
 function searchHerre(){
@@ -159,7 +198,7 @@ function simpleSearch() {
 
       resultFilter();
       delayNewNumberedList();
-
+      newMap();
       }
 
 
@@ -188,7 +227,7 @@ function resultFilter(){
     resultList = [];
     for(i = 0; i<toiletObject.entries.length; i++){
       var comparison = toiletObject.entries[i];
-      if(listOfLists.length == 0){
+      if(listOfLists.length === 0){
           resultList.push(comparison);
       }
         for(var y=0; y < listOfLists.length; y++){
@@ -212,7 +251,7 @@ function resultFilter(){
 
 
 var delayer;
-//Delayer so that the numberedList is created 
+//Delayer so that the numberedList is created
 function delayNewNumberedList(){
   delayer = setTimeout(newNumberedList, 100);
 }
@@ -220,7 +259,7 @@ function delayNewNumberedList(){
 //Creates new numbered list based on resultList;
 function newNumberedList() {
   var numberedList = document.getElementById("numberedList");
-  numberedList.innerHTML = ""; //QWAAAAAAARGH
+  numberedList.innerHTML = ""; //Resetter innerHTML, slik at den er klar for ny input.
   var ol = document.createElement('ol');
   numberedList.appendChild(ol);
   for (var i = 0; i < resultList.length; i++) {
