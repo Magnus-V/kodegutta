@@ -4,7 +4,8 @@ var resultList = [];
 var markerList= [];
 var map;
 
-
+//Henter ut JSON data fra angikk url. Her en oversikt over lekeplasser i Bergen.
+//Har i tillegg en callback-funksjon, for å fungere på de senere metodene.
 var getJson = function(url,callback) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url, true);
@@ -17,6 +18,7 @@ var getJson = function(url,callback) {
   xhr.send();
 }
 
+//Initisierer kartet slik at det kommer opp på siden.
 function initMap () {
 
   map = new google.maps.Map(document.getElementById('map'), {
@@ -28,6 +30,7 @@ function initMap () {
         });
       }
 
+//Lager en nummerert liste over alle lekeplassene som er på kartet.
 function createNumberedList(){
         getJson(url, function(lekeplassObject){
         var ol = document.createElement('ol');
@@ -39,9 +42,10 @@ function createNumberedList(){
          };
       });
       }
-      createNumberedList();
 
+createNumberedList();
 
+//Funksjonen som er ansvarlig for å sette markørene på kartet.
 function makeMarkerList () {
   getJson(url, function (lekeplassObject) {
     data = lekeplassObject.entries;
