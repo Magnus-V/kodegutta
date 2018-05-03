@@ -82,6 +82,13 @@ function newMap () {
   }
 }
 
+var mapDelayer;
+function delayNewMap(){
+  delayer = setTimeout(function () {
+
+  }, 10);
+}
+
 //Sjekker om lokalisjonen har herretoalett
 function searchHerre(){
   getJSON(url, function(toiletObject){
@@ -194,25 +201,6 @@ function simpleSearch() {
       newMap();
       }
 
-function filterResult(){
-  getJSON(url, function(toiletObject){
-  for (var i = 0; i<toiletObject.entries.length; i++) {
-    var found = true;
-    for (var y = 0; y < listOfLists.length; y++) {
-     if (!listOfLists[y].includes(toiletObject.entries[i])) {
-       found = false;
-       break;
-        }
-      }
-    //Hvis den ikke eksisterer i en av listene stoppes for-loopen og vi begynner med neste mulige resultat
-    if (found) {
-      resultList.push(toiletObject.entries[i]);
-    }
-  }
-  listOfLists = [];
-}
-)
-}
 
 //Metoden tar inn listen skapt av søket, og filtrer den basert på om de er samme som i dataen.
 function resultFilter(){
