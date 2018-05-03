@@ -6,12 +6,13 @@ h6 {font-family: "fantasy";}
 
 #bilde1 {width: 100%;height: auto;}
 
+/* Utgjør størrelse på kartet */
    #map {
     height: 400px;
     width: 100%;
    }
 
-/* Skrolle funksjonen til listen over lekeplasser */
+/* Styling til scrolle-funksjonen til listen over lekeplasser */
    .boks {
 border: solid;
 border-color: #DAA520;
@@ -33,7 +34,7 @@ overflow: scroll;
 }
 
 
-
+/* definerer styling som gjelder hele body-en (alt vi ser på siden) */
 body {
     font-family: Arial;
     padding: 20px;
@@ -88,17 +89,18 @@ body {
     }
 }
 
+/* Styling til search-button */
 #searchButton {
   padding: 15em, 0.5em, 0.5em, 0.5em;
 }
 
-body {margin:0;}
+/* Styling til topp-navigasjons-menyen */
 .topnav {
   overflow: hidden;
   background-color: #333;
 }
 
-/*Menyen i toppen sin styling */
+/*Styling til topp-navigasjons-menyen sine lenker */
 .topnav a {
   float: left;
   display: block;
@@ -109,15 +111,18 @@ body {margin:0;}
   font-size: 17px;
 }
 
+/* Hva som skjer når en holder musepilen over lenkene i topp-navigasjons-menyen */
 .topnav a:hover {
   background-color: #ddd;
   color: black;
 }
 
+/* Den siden man er på skifter bakgrunns-farge, slik at man kan se hvilken side man er på */
 .active {
   background-color: #DAA520;
   color: white;
 }
+
 
 .topnav .icon {
   display: none;
