@@ -1,5 +1,12 @@
+/*  Alle kommentarer i filen peker til koden som står under.
+*   Javascript fil tilhørende til utvekslingsstudie.html.
+*   Funksjon: La brukeren velge en favoritt lekeplass og finner nærmeste toalett til valgt lekeplass.
+*/
+
+// url til utvekslingsstudie datasettet.
 var url = "https://hotell.difi.no/api/json/bergen/lekeplasser?";
 var url2 = "https://hotell.difi.no/api/json/bergen/dokart?";
+// Andre globale variabler
 var map;
 var lat;
 var lng;
